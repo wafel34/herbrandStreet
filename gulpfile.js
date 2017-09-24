@@ -88,11 +88,27 @@ gulp.task('sass', function () {
 });
 
 
+//load only visible part of webiste fisrt
+gulp.task('pre-sass', function () {
+    return gulp.src('./resources/sass/intro.sass')
+            .pipe(plumber({
+              errorHandler: onError
+            }))
+            .pipe(sourcemaps.init({loadMaps: true}))
+            .pipe(sass())
+            .pipe(autoprefixer())
+            .pipe(sourcemaps.write())
+            //.pipe(gulpIf(env === 'production', minifyCss()))
+            .pipe(gulp.dest(outputDir + '/css'))
+            .pipe(browserSync.stream())
+});
 
 
-gulp.task('default', ['browser-sync', 'sass', 'js'], function () {
+
+
+gulp.task('default', ['browser-sync', 'sass', 'pre-sass', 'js'], function () {
     gulp.watch(jsSources, ['js']);
     gulp.watch('resources/sass/**/*.sass', ['sass']);
-    gulp.watch('resources/sass/**/*.scss', ['sass']);
+    gulp.watch('resources/sass/**/intro.sass', ['pre-sass']);
     gulp.watch('app/*.html', browserSync.reload);
 });

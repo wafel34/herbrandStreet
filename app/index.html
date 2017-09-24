@@ -8,11 +8,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <link rel="shortcut icon" href="">
+    <link rel="stylesheet" type="text/css" href="css/intro.css">
 </head>
 <body>
 
-<header>
-	<nav>
+<!-- ##########
+	HEADER
+#########   -->
+<header class="header">
+	<nav class="navigation">
 		<h2 class="visually-hidden">Menu</h2>
 		<label for="menu-checkbox">
 			Click me!
@@ -28,32 +32,46 @@
 			<li>Contact</li>
 		</ul>
 	</nav>
-	<h1 class="main-header">Feel comfortable in London!</h1>
-	<h2 class="secondary-header">And stay in our spacious apartment.</h2>
-	<button>SEE DETAILS</button>
+	
+	<div class="main-header">
+		<h1 class="main-header__h1">Feel comfortable in London!</h1>
+		<h2 class="secondary-header">And stay in our spacious apartment.</h2>
+		<button>SEE DETAILS</button>
+	</div>
+
 </header>
 
+<!-- ##########
+	MAIN
+#########   -->
 <main>
+
+	<!-- ##########
+		DETAILS
+	#########   -->
 	<section class="details" id="details">
 		<h2 class="visually-hidden">Details:</h2>
 		<aside>
-			<span>Apartment</span>
+			<h3>Apartment</h3>
 			<span>65 sq. m.</span>
 		</aside>
 		<aside>
-			<span>People</span>
+			<h3>People</h3>
 			<span>6</span>
 		</aside>
 		<aside>
-			<span>Bedrooms</span>
+			<h3>Bedrooms</h3>
 			<span>2</span>
 		</aside>
 		<aside>
-			<span>Bathrooms</span>
+			<h3>Bathrooms</h3>
 			<span>2</span>
 		</aside>
 	</section>
 
+	<!-- ##########
+		OVERVIEW
+	#########   -->
 	<section class="overview" id="overview">
 		<h2>Overview</h2>
 		<p>This spacious 2-bedroom apartment, which sleeps 6, is located within the heart of tourist London. A stone's throw from the <em>British Museum, the British Library, Covent Garden and its theatres, Waterloo Bridge and many more London landmarks.</em> The flat is very quiet, situated within a courtyard and not directly on the street. For transport: Russell Square tube station is 2 minutes away with a <strong>direct line to Heathrow airport</strong>. The flat is also well serviced by bus route, with bus number 7 going all the way down <strong>Oxford Street</strong>. Furthermore, 2 minutes away is the Brunswick Centre, with its restaurants, cafes, big and well stocked Waitrose supermarket, shops and cinema. For nature lovers, there are many green spaces in the vicinity. This modern flat comprises all the latest conveniences including a dishwasher, 'Mile' washing machine, tumble dryer, fridge-freezer, cable flat screen TV and free wireless internet access. Recently renovated to a high standard, there are 2 bathrooms (shower and bath), and a fitted-kitchen. Located on the second floor (no lift), this modern, sunny apartment is comfortable, clean and very practical.</p>
@@ -82,7 +100,9 @@
 		<img src="images/19_t.jpg" alt="Photo of local pub">
 	</section>
 
-
+	<!-- ##########
+		FACILITIES
+	#########   -->
 	<section class="facilities" id="facilities">
 		<h2>Facilities</h2>
 		<table>
@@ -240,12 +260,18 @@
 		</table>
 	</section>
 
+	<!-- ##########
+		LOCATION
+	#########   -->
 	<section class="location" id="location">
 		<h2>Location:</h2>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.534808196548!2d-0.128078684514755!3d51.521749979637484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b310bb300bf%3A0xd1190a08b331324a!2sRussell+Square!5e0!3m2!1spl!2suk!4v1506249765901">
 		</iframe>
 	</section>
 
+	<!-- ##########
+		CONTACT
+	#########   -->
 	<section class="contact" id="contact">
 		<h2>Contact us:</h2>
 		<form action="#" name="contactForm">
@@ -270,10 +296,14 @@
 	</section>
 </main>
 
+<!-- ##########
+	FOOTER
+#########   -->
 <footer>
-	
+
 </footer>
 
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="js/main.js"></script>
 </body>
 </html>
