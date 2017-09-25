@@ -4,7 +4,8 @@
   "description": "Landing page of apartment in London available for rent for tourists.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app/server"
+    "start": "nodemon app/server",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
