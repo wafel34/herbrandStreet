@@ -16,7 +16,50 @@ body
     background: pink
     top: 0
     bottom: 0
-    left: 0
+    left: -150px
+    background-color: #23292b
+    transition: all .3s
+
+.menu
+    &__label
+        position: absolute
+        right: -115px
+        top: 10px
+        padding: 5px 10px
+        border-radius: 5px
+        text-transform: uppercase
+        font-size: 1.4em
+        background-color: #23292b
+        color: #fff
+        border: 1px solid #fff
+    &__arrow
+        display: inline-block
+        transition: transform .7s ease-in-out
+    &__checkbox
+        height: 0
+        &:checked + .navigation
+            left: 0px
+            .menu__arrow
+                transform: rotate(-180deg)
+                transition: transform .7s ease-in-out
+
+        &:focus + .navigation > .menu__label
+            border: 1px solid yellow
+
+
+.menu-list
+    height: 100%
+    margin-top: -1em
+    list-style-type: none
+    display: flex
+    flex-direction: column
+    justify-content: center
+    overflow-y: auto
+    &__item
+        margin-bottom: 1em
+        a
+            text-decoration: none
+            color: #fff
 
 .main-header
     display: flex
