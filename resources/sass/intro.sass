@@ -124,13 +124,22 @@ body
         border: 2px solid rgba(255,255,255,.65)
         padding: 20px
         transition: all .3s
+        &::after
+            content: ''
+            display: block
+            height: 1px
+            background-color: #fff
+            width: 0
+            transition: all .3s linear
         &:focus,
         &:hover
             background-color: rgba(36,42,44,.9)
-            box-shadow: 0px 25px 15px -15px white
+            box-shadow: 0px 25px 15px -15px rgba(255,255,255,.25)
             outline: none
             transform: translateY(5px)
             color: #63c5ad
+            &::after
+                width: 100%
 
 
 
