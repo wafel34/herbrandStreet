@@ -1,15 +1,17 @@
 body
     box-sizing: border-box
 
+//ELEMENT THAT SHOUDN'T BE DISPLAYED
 .visually-hidden
     display: none
 
+//HEADER WITH BACKGROUND IMAGE
 .header
     height: 100vh
     width: 100%
     background: linear-gradient(to right, rgba(58,72,74, 0.75), rgba(62,79,78, 0.5), rgba(45,48,47, 0.75)), url('../images/london-bg.jpg') no-repeat top
-    background-color: yellow
 
+//WHOLE PANEL THAT GETS HIDDEN (DARK BACKGROUND)
 .navigation
     position: fixed
     width: 150px
@@ -20,6 +22,8 @@ body
     background-color: #23292b
     transition: all .3s
 
+
+// MENU HANDLER - CHECKBOX AND LABEL
 .menu
     &__label
         position: absolute
@@ -32,6 +36,7 @@ body
         background-color: #23292b
         color: #fff
         border: 1px solid #fff
+        transition: all .3s
     &__arrow
         display: inline-block
         transition: transform .7s ease-in-out
@@ -43,10 +48,13 @@ body
                 transform: rotate(-180deg)
                 transition: transform .7s ease-in-out
 
+        &:checked + .navigation > .menu-list
+            visibility: visible
+        &:hover + .navigation > .menu__label,
         &:focus + .navigation > .menu__label
-            border: 1px solid yellow
+            border: 1px solid #63c5ad
 
-
+//UNORDERED LIST
 .menu-list
     height: 100%
     margin-top: -1em
@@ -55,11 +63,30 @@ body
     flex-direction: column
     justify-content: center
     overflow-y: auto
+    visibility: hidden
     &__item
         margin-bottom: 1em
         a
             text-decoration: none
-            color: #fff
+            color: rgba(255,255,255,.6)
+            transition: color .3s
+            &::after
+                content: ''
+                display: block
+                background-color: white
+                height: 1px
+                width: 0
+                transition: all .3s linear
+            &:hover,
+            &:focus
+                color: rgba(255,255,255,1)
+                outline: none
+                &::after
+                    content: ''
+                    display: block
+                    width: 70px
+
+
 
 .main-header
     display: flex
@@ -95,6 +122,14 @@ body
         border-radius: 4px
         border: 2px solid rgba(255,255,255,.65)
         padding: 20px
+        transition: all .3s
+        &:focus,
+        &:hover
+            background-color: rgba(36,42,44,.9)
+            box-shadow: 0px 25px 15px -15px white
+            outline: none
+            transform: translateY(5px)
+            color: #63c5ad
 
 
 

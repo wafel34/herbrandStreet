@@ -16,19 +16,19 @@
 	HEADER
 #########   -->
 <header class="header">
-	<input class="menu__checkbox" type="checkbox" id="menu-checkbox" unchecked>
+	<input role="menu" aria-checked="false" aria-label="check to open menu" class="menu__checkbox" type="checkbox" id="menu-checkbox" unchecked>
 	<nav class="navigation">
 		<h2 class="visually-hidden">Menu</h2>
 		<label for="menu-checkbox" class="menu__label">
 			Menu <span class="menu__arrow" aria-hidden="true">&raquo;</span>
 		</label>
 		<ul class="menu-list">
-			<li class="menu-list__item"><a href="#" title="" role="menuitem">Home</a></li>
-			<li class="menu-list__item"><a href="#details" title="" role="menuitem">Details</a></li>
-			<li class="menu-list__item"><a href="#overview" title="" role="menuitem">Overview</a></li>
-			<li class="menu-list__item"><a href="#gallery" title="" role="menuitem">Gallery</a></li>
-			<li class="menu-list__item"><a href="#facilities" title="" role="menuitem">Facilities</a></li>
-			<li class="menu-list__item"><a href="#contact" title="" role="menuitem">Contact</a></li>
+			<li role="menuitem" class="menu-list__item"><a href="#" title="Home Page" >Home</a></li>
+			<li role="menuitem" class="menu-list__item"><a href="#details" title="Details Section" >Details</a></li>
+			<li role="menuitem" class="menu-list__item"><a href="#overview" title="Overwiew of the apartment" >Overview</a></li>
+			<li role="menuitem" class="menu-list__item"><a href="#gallery" title="Gallery of the apartment">Gallery</a></li>
+			<li role="menuitem" class="menu-list__item"><a href="#facilities" title="Facilities section" >Facilities</a></li>
+			<li role="menuitem" class="menu-list__item"><a href="#contact" title="Contact section" >Contact</a></li>
 		</ul>
 	</nav>
 
