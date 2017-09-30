@@ -16,7 +16,7 @@
 	HEADER
 #########   -->
 <header class="header">
-	<input role="menu" aria-checked="false" aria-label="tick to open menu" class="menu__checkbox" type="checkbox" id="menu-checkbox" unchecked>
+	<input aria-expanded="false" aria-label="press space to open menu" class="menu__checkbox" type="checkbox" id="menu-checkbox" unchecked>
 	<nav class="navigation">
 		<h2 class="visually-hidden">Menu</h2>
 		<label for="menu-checkbox" class="menu__label">
@@ -25,12 +25,12 @@
 
 		<!--LIST OF MENU ITEMS-->
 		<ul class="menu-list">
-			<li role="menuitem" class="menu-list__item"><a href="#" title="Home Page" >Home</a></li>
-			<li role="menuitem" class="menu-list__item"><a href="#details" title="Details Section" >Details</a></li>
-			<li role="menuitem" class="menu-list__item"><a href="#overview" title="Overwiew of the apartment" >Overview</a></li>
-			<li role="menuitem" class="menu-list__item"><a href="#gallery" title="Gallery of the apartment">Gallery</a></li>
-			<li role="menuitem" class="menu-list__item"><a href="#facilities" title="Facilities section" >Facilities</a></li>
-			<li role="menuitem" class="menu-list__item"><a href="#contact" title="Contact section" >Contact</a></li>
+			<li class="menu-list__item"><a href="#" title="Home Page" >Home</a></li>
+			<li class="menu-list__item"><a href="#details" title="Details Section" >Details</a></li>
+			<li class="menu-list__item"><a href="#overview" title="Overwiew of the apartment" >Overview</a></li>
+			<li class="menu-list__item"><a href="#gallery" title="Gallery of the apartment">Gallery</a></li>
+			<li class="menu-list__item"><a href="#facilities" title="Facilities section" >Facilities</a></li>
+			<li class="menu-list__item"><a href="#contact" title="Contact section" >Contact</a></li>
 		</ul>
 	</nav>
 
@@ -51,7 +51,7 @@
 	<!-- ##########
 		DETAILS
 	#########   -->
-	<section class="details" id="details">
+	<section class="details" id="details" role="region">
 		<h2 class="visually-hidden">Details:</h2>
 		<aside>
 			<h3>Apartment</h3>
@@ -74,12 +74,12 @@
 	<!-- ##########
 		OVERVIEW
 	#########   -->
-	<section class="overview" id="overview">
+	<section class="overview" id="overview" role="region">
 		<h2>Overview</h2>
 		<p>This spacious 2-bedroom apartment, which sleeps 6, is located within the heart of tourist London. A stone's throw from the <em>British Museum, the British Library, Covent Garden and its theatres, Waterloo Bridge and many more London landmarks.</em> The flat is very quiet, situated within a courtyard and not directly on the street. For transport: Russell Square tube station is 2 minutes away with a <strong>direct line to Heathrow airport</strong>. The flat is also well serviced by bus route, with bus number 7 going all the way down <strong>Oxford Street</strong>. Furthermore, 2 minutes away is the Brunswick Centre, with its restaurants, cafes, big and well stocked Waitrose supermarket, shops and cinema. For nature lovers, there are many green spaces in the vicinity. This modern flat comprises all the latest conveniences including a dishwasher, 'Mile' washing machine, tumble dryer, fridge-freezer, cable flat screen TV and free wireless internet access. Recently renovated to a high standard, there are 2 bathrooms (shower and bath), and a fitted-kitchen. Located on the second floor (no lift), this modern, sunny apartment is comfortable, clean and very practical.</p>
 	</section>
 
-	<section class="gallery" id="gallery">
+	<section class="gallery" id="gallery" role="region">
 		<h2>Gallery</h2>
 		<img src="images/1_t.jpg" alt="Photo of the British Museum">
 		<img src="images/2_t.jpg" alt="Photo of spacious kitchen">
@@ -105,7 +105,7 @@
 	<!-- ##########
 		FACILITIES
 	#########   -->
-	<section class="facilities" id="facilities">
+	<section class="facilities" id="facilities" role="region">
 		<h2>Facilities</h2>
 		<table>
 			<tbody>
@@ -265,7 +265,7 @@
 	<!-- ##########
 		LOCATION
 	#########   -->
-	<section class="location" id="location">
+	<section class="location" id="location" role="region">
 		<h2>Location:</h2>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.534808196548!2d-0.128078684514755!3d51.521749979637484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b310bb300bf%3A0xd1190a08b331324a!2sRussell+Square!5e0!3m2!1spl!2suk!4v1506249765901">
 		</iframe>
@@ -274,7 +274,7 @@
 	<!-- ##########
 		CONTACT
 	#########   -->
-	<section class="contact" id="contact">
+	<section class="contact" id="contact" role="region">
 		<h2>Contact us:</h2>
 		<form action="#" name="contactForm">
 			<legend>Email us. We speak in English, French, Spanish and Polish.</legend>
