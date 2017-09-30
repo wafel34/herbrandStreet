@@ -1,0 +1,39 @@
+.details
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    margin: 1em -.5em
+    color: $grey
+
+.tile
+    text-align: center
+    margin: .5em
+    transition: all .3s
+    &:hover
+        transform: scale(1.05)
+    img
+        max-width: 225px
+        display: block
+        opacity: .75
+        position: relative
+        z-index: -1
+
+    &__figcaption
+        border-left: 1px solid $light-grey
+
+.icon
+    font-size: 3em
+    color: $grey
+    background-color: rgba(255,255,255,.75)
+    padding: .3em
+    border-radius: 50%
+    border: 3px solid $greenish
+    margin-top: -2em
+
+
+.overview
+    border-top: 1px solid $light-grey
+    background-color: #f8f8f8
+    padding: 1em
+    text-align: justify
+    color: $grey

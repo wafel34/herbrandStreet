@@ -1,0 +1,21 @@
+.gallery-header
+    background-color: $greenish
+    color: #fff
+    margin: 0
+    padding: 1em
+
+.gallery
+    background-color: $grey
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    &__item
+        flex-grow: 1
+        max-width: 288px
+        display: block
+
+
+@media screen and (min-width: 320px)
+    .gallery
+        &__item
+            max-width: 50%
