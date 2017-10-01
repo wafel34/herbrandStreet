@@ -2,9 +2,19 @@
     @extend .gallery-header
     background-color: $grey
 
-
 .facilities
-    background-color: $grey
-    color: #fff
     padding: 1em
+    background-color: $light-grey
+
+table.table
     overflow-x: auto
+    > tbody
+        > tr.table__header
+            font-weight: 600
+            border-bottom: 1px solid $grey
+            color: $grey
+
+table.table > tbody > tr > td
+    padding: 10px 0 0 0
+    > span
+        display: block

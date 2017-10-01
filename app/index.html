@@ -7,7 +7,7 @@
 	<meta name="keywords" content="apartment for rent, london, apartments, 2 bedroom flat, flats in london, rooms in london, central london apartments, british museum, russel square">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" type="text/css" href="css/intro.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
 	HEADER
 #########   -->
 <header class="header">
-	<input aria-expanded="false" aria-label="press space to open menu" class="menu__checkbox" type="checkbox" id="menu-checkbox">
+	<input aria-checked="false" aria-label="press space to open menu" class="menu__checkbox" type="checkbox" id="menu-checkbox" role="checkbox">
 	<nav class="navigation">
 		<h2 class="visually-hidden">Menu</h2>
 		<label for="menu-checkbox" class="menu__label">
@@ -27,10 +27,10 @@
 		<ul class="menu-list">
 			<li class="menu-list__item"><a href="#" title="Home Page" >Home</a></li>
 			<li class="menu-list__item"><a href="#details" title="Details Section" >Details</a></li>
-			<li class="menu-list__item"><a href="#overview" title="Overwiew of the apartment" >Overview</a></li>
-			<li class="menu-list__item"><a href="#gallery" title="Gallery of the apartment">Gallery</a></li>
-			<li class="menu-list__item"><a href="#facilities" title="Facilities section" >Facilities</a></li>
-			<li class="menu-list__item"><a href="#contact" title="Contact section" >Contact</a></li>
+			<li class="menu-list__item"><a href="#overview-header" title="Overwiew of the apartment" >Overview</a></li>
+			<li class="menu-list__item"><a href="#gallery-header" title="Gallery of the apartment">Gallery</a></li>
+			<li class="menu-list__item"><a href="#facilities-header" title="Facilities section" >Facilities</a></li>
+			<li class="menu-list__item"><a href="#contact-header" title="Contact section" >Contact</a></li>
 		</ul>
 	</nav>
 
@@ -92,7 +92,7 @@
 		OVERVIEW
 	#########   -->
 	<section class="overview" id="overview" role="region">
-		<h2>Overview</h2>
+		<h2 id="overview-header" class="overview-header">Overview</h2>
 		<p>This spacious 2-bedroom apartment, which sleeps 6, is located within the heart of tourist London. A stone's throw from the <em>British Museum, the British Library, Covent Garden and its theatres, Waterloo Bridge and many more London landmarks.</em> The flat is very quiet, situated within a courtyard and not directly on the street. For transport: Russell Square tube station is 2 minutes away with a <strong>direct line to Heathrow airport</strong>. The flat is also well serviced by bus route, with bus number 7 going all the way down <strong>Oxford Street</strong>. Furthermore, 2 minutes away is the Brunswick Centre, with its restaurants, cafes, big and well stocked Waitrose supermarket, shops and cinema. For nature lovers, there are many green spaces in the vicinity. This modern flat comprises all the latest conveniences including a dishwasher, 'Mile' washing machine, tumble dryer, fridge-freezer, cable flat screen TV and free wireless internet access. Recently renovated to a high standard, there are 2 bathrooms (shower and bath), and a fitted-kitchen. Located on the second floor (no lift), this modern, sunny apartment is comfortable, clean and very practical.</p>
 	</section>
 	<h2 id="gallery-header" class="gallery-header">Gallery</h2>
@@ -117,6 +117,7 @@
 		<img class="gallery__item" src="images/17_t.jpg" alt="Photo of entrance hall. Bedrooms on the right and left, living room straight forward.">
 		<img class="gallery__item" src="images/18_t.jpg" alt="Photo of local shopping center with places like: Wiatrose, Sainsbury's Local, New Look, Pret">
 		<img class="gallery__item" src="images/19_t.jpg" alt="Photo of local pub">
+		<img class="gallery__item" src="images/20_t.jpg" alt="Photo bedroom and some facilities">
 	</section>
 
 	<!-- ##########
@@ -129,49 +130,49 @@
 
 				<!--   PROPERTY TYPE    -->
 				<tr class="table__header">
-					<td colspan="2">Property Type:</td>
+					<td colspan="2"><span>Property Type:</span></td>
 				</tr>
 				<tr>
-					<td>Apartment</td>
-					<td>Floor 2</td>
+					<td><span>Apartment</span></td>
+					<td><span>Floor 2</span></td>
 				</tr>
 
 				<!--   FOOT AREA    -->
 				<tr class="table__header">
-					<td colspan="2">Foot area:</td>
+					<td colspan="2"><span>Foot area:</span></td>
 				</tr>
 				<tr>
-					<td>669 sq. ft</td>
-					<td>65 sq. m.</td>
+					<td><span>669 sq. ft</span></td>
+					<td><span>65 sq. m.</span></td>
 				</tr>
 
 				<!--   HOUSE RULES    -->
 				<tr class="table__header">
-					<td colspan="2">House rules:</td>
+					<td colspan="2"><span>House rules:</span></td>
 				</tr>
 				<tr>
 					<td>
-						<span>Max. occupancy: 6 </span>
+						<span>Max. occupancy: 6</span>
 						<span>children welcome</span>
 					</td>
 					<td>
-						<span>non smoking only </span>
+						<span>non smoking only</span>
 						<span>pets not allowed</span>
 					</td>
 				</tr>
 
 				<!--   LOCATION TYPE    -->
 				<tr class="table__header">
-					<td colspan="2">Location Type:</td>
+					<td colspan="2"><span>Location Type:</span></td>
 				</tr>
 				<tr>
-					<td>City centre</td>
-					<td>London</td>
+					<td><span>City centre</span></td>
+					<td><span>London</span></td>
 				</tr>
 
 				<!--   GENERAL    -->
 				<tr class="table__header">
-					<td colspan="2">General:</td>
+					<td colspan="2"><span>General:</span></td>
 				</tr>
 				<tr>
 					<td>
@@ -196,51 +197,55 @@
 
 				<!--   KITCHEN    -->
 				<tr class="table__header">
-					<td colspan="2">Kitchen:</td>
+					<td colspan="2"><span>Kitchen:</span></td>
 				</tr>
-				<td>
-					<span>4 Ring Stove</span>
-					<span>Coffee Maker</span>
-					<span>Cooking Utensils</span>
-					<span>Dishes and Utensils</span>
-					<span>Dishwasher</span>
-					<span>Freezer</span>
-				</td>
-				<td>
-					<span>Grill</span>
-					<span>Kitchen</span>
-					<span>Microwave</span>
-					<span>Oven</span>
-					<span>Refrigerator</span>
-					<span>Toaster</span>
-				</td>
+				<tr>
+					<td>
+						<span>4 Ring Stove</span>
+						<span>Coffee Maker</span>
+						<span>Cooking Utensils</span>
+						<span>Dishes and Utensils</span>
+						<span>Dishwasher</span>
+						<span>Freezer</span>
+					</td>
+					<td>
+						<span>Grill</span>
+						<span>Kitchen</span>
+						<span>Microwave</span>
+						<span>Oven</span>
+						<span>Refrigerator</span>
+						<span>Toaster</span>
+					</td>
+				</tr>
 
 				<!--   DINING    -->
 				<tr class="table__header">
-					<td colspan="2">Dining:</td>
+					<td colspan="2"><span>Dining:</span></td>
 				</tr>
 				<tr>
-					<td>Dining Area</td>
-					<td>Seating for 6 people</td>
+					<td><span>Dining Area</span></td>
+					<td><span>Seating for 6 people</span></td>
 				</tr>
 
 				<!--   BATHROOMS    -->
 				<tr class="table__header">
-					<td colspan="2">Bathrooms:</td>
+					<td colspan="2"><span>Bathrooms:</span></td>
 				</tr>
 				<tr>
-					<td>Bathroom 1 - Toilet , Bath with Shower</td>
-					<td>Bathroom 2 - Toilet , Shower Enclosure </td>
+					<td><span>Bathroom 1 - Toilet , Bath with Shower</span></td>
+					<td><span>Bathroom 2 - Toilet , Shower Enclosure</span></td>
 				</tr>
 				<tr>
 					<td colspan="2">
+						<span>
 						There are 2 bathrooms in this property. The first is a shower room with a toilet and sink, and the second is a bathroom with a bath tub, toilet and sink. Both bathrooms are designed in a modern way.
+						</span>
 					</td>
 				</tr>
 
 				<!--   BEDROOMS    -->
 				<tr class="table__header">
-					<td colspan="2">Bedrooms:</td>
+					<td colspan="2"><span>Bedrooms:</span></td>
 				</tr>
 				<tr>
 					<td>Bedroom 1 - 1 Large Double Bed </td>
@@ -248,14 +253,16 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						Lounge - 1 Sofa bed/Futon , Sofa bed can be made up as two separate single beds.
-						In this property there are 2 bedrooms, 2 bathrooms, open plan kitchen and a lounge area with a sofa bed. In the larger bedroom, there are 2 single beds and en suite bathroom/WC. For the second bedroom with large double bed, the shower room / WC is off the corridor. For 6 people, the lounge area can also be converted into a very comfortable bedroom which sleeps two.
+						<span>
+							Lounge - 1 Sofa bed/Futon , Sofa bed can be made up as two separate single beds.
+							In this property there are 2 bedrooms, 2 bathrooms, open plan kitchen and a lounge area with a sofa bed. In the larger bedroom, there are 2 single beds and en suite bathroom/WC. For the second bedroom with large double bed, the shower room / WC is off the corridor. For 6 people, the lounge area can also be converted into a very comfortable bedroom which sleeps two.
+						</span>
 					</td>
 				</tr>
 
 				<!--   ENTERTAINMENT    -->
 				<tr class="table__header">
-					<td colspan="2">Entertainment:</td>
+					<td colspan="2"><span>Entertainment:</span></td>
 				</tr>
 				<tr>
 					<td>
@@ -282,34 +289,36 @@
 	<!-- ##########
 		LOCATION
 	#########   -->
-	<section class="location" id="location" role="region">
-		<h2>Location:</h2>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.534808196548!2d-0.128078684514755!3d51.521749979637484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b310bb300bf%3A0xd1190a08b331324a!2sRussell+Square!5e0!3m2!1spl!2suk!4v1506249765901">
+	<section class="location" id="location" role="region" aria-labelledby="location-header">
+		<h2 class="location-header" id="location-header">Location:</h2>
+		<iframe class="iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39718.87797289261!2d-0.16046912130796215!3d51.52367487963771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b30f21ca2c1%3A0x6d7c1bf1902a6061!2sHerbrand+St%2C+Bloomsbury%2C+London+WC1N!5e0!3m2!1spl!2suk!4v1506851503912">
 		</iframe>
 	</section>
 
 	<!-- ##########
 		CONTACT
 	#########   -->
-	<section class="contact" id="contact" role="region">
-		<h2>Contact us:</h2>
-		<form action="#" name="contactForm">
-			<legend>Email us. We speak in English, French, Spanish and Polish.</legend>
-			<div>
-				<label for="personName">Your name:</label>
-				<input type="text" id="personName">
-			</div>
+	<section class="contact" id="contact" role="region" aria-labelledby="contact-header">
+		<h2 class="contact-header" id="contact-header">Contact us:</h2>
+		<form action="#" name="contactForm" class="form">
+			<fieldset>
+				<legend class="form_legend">Email us. We speak in English, French, Spanish and Polish.</legend>
+				<div>
+					<label for="personName">Your name:</label>
+					<input type="text" id="personName">
+				</div>
 
-			<div>
-				<label for="personEmail">Your email:</label>
-				<input type="email" id="personEmail">
-			</div>
+				<div>
+					<label for="personEmail">Your email:</label>
+					<input type="email" id="personEmail">
+				</div>
 
-			<div>
-				<label for="personMessage">Your message:</label>
-				<textarea name="personMessage" id="personMessage">
-				</textarea>
-			</div>
+				<div>
+					<label for="personMessage">Your message:</label>
+					<textarea name="personMessage" id="personMessage">
+					</textarea>
+				</div>
+			</fieldset>
 			<input type="submit" value="Send">
 		</form>
 	</section>
