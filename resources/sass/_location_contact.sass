@@ -12,7 +12,43 @@
 
 .contact
     background-color: $light-grey
+    text-align: center
 
 
-fieldset
-    border: none
+
+//
+
+.info
+    display: block
+    padding: 1em 0
+
+.form
+    display: flex
+    flex-direction: column
+    align-items: center
+    text-align: center
+    > *
+        width: 80%
+
+    &__input
+        border: 2px solid $greenish
+        padding: .5em 1em
+        color: $grey
+        transition: all .3s linear
+        display: block
+        &::before
+
+
+
+    &__label
+        padding: .5em 0 .25em 0
+
+    &__submit
+        border: none
+        margin-top: 1em
+        padding: .5em 1em
+        background-color: $greenish
+
+@media screen and (min-width: 798px)
+    .form > *
+        width: 50%

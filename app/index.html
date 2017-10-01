@@ -300,26 +300,19 @@
 	#########   -->
 	<section class="contact" id="contact" role="region" aria-labelledby="contact-header">
 		<h2 class="contact-header" id="contact-header">Contact us:</h2>
+
+		<span class="info">Email us. We speak in English, French, Spanish and Polish.</span>
 		<form action="#" name="contactForm" class="form">
-			<fieldset>
-				<legend class="form_legend">Email us. We speak in English, French, Spanish and Polish.</legend>
-				<div>
-					<label for="personName">Your name:</label>
-					<input type="text" id="personName">
-				</div>
+				<label class="form__label"for="personName">Your name:</label>
+				<input required class="form__input" type="text" id="personName" placeholder="John">
 
-				<div>
-					<label for="personEmail">Your email:</label>
-					<input type="email" id="personEmail">
-				</div>
+				<label class="form__label"for="personEmail">Your email:</label>
+				<input required class="form__input" type="email" id="personEmail" placeholder="john.smith@mail.co.uk">
 
-				<div>
-					<label for="personMessage">Your message:</label>
-					<textarea name="personMessage" id="personMessage">
-					</textarea>
-				</div>
-			</fieldset>
-			<input type="submit" value="Send">
+				<label class="form__label"for="personMessage">Your message:</label>
+				<textarea required class="form__input" name="personMessage" id="personMessage" placeholder="Enter your message here..."></textarea>
+
+			<input class="form__submit" type="submit" value="Send">
 		</form>
 	</section>
 </main>
