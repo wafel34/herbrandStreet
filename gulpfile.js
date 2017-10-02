@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     plumber = require('gulp-plumber'),
     concat = require('gulp-concat'),
-    browserify = require('gulp-browserify');
+    browserify = require('gulp-browserify'),
+    reload = browserSync.reload;
 
 var sassSources = './resources/sass/style.sass',
     jsSources = './resources/scripts/**/*.js',
