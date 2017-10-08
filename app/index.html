@@ -291,8 +291,28 @@
 	#########   -->
 	<section class="location" id="location" role="region" aria-labelledby="location-header">
 		<h2 class="location-header" id="location-header">Location:</h2>
-		<iframe class="iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39718.87797289261!2d-0.16046912130796215!3d51.52367487963771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b30f21ca2c1%3A0x6d7c1bf1902a6061!2sHerbrand+St%2C+Bloomsbury%2C+London+WC1N!5e0!3m2!1spl!2suk!4v1506851503912">
-		</iframe>
+		<div id="map-display" class="map-display">
+			<!-- MAP GOES HERE-->
+		</div>
+		<div class="map-data">
+			<div id="input">
+				<select class="map-data__select" name="type" id="input-type"> <!--Supplement an id here instead of using 'name'-->
+				  <option value="museum">Museum</option>
+				  <option value="restaurant">Restaurant</option>
+				  <option value="shopping_mall">Shopping mall</option>
+				  <option value="park">Park</option>
+				  <option value="clothing_store">Clothes shopping</option>
+				  <option value="gym">Gym</option>
+				  <option value="night_club">Night club</option>
+				  <option value="movie_theater">Cinema/Theater</option>
+				</select>
+				<select class="map-data__select" name="sortBy" id="input-sort">
+					<option value="rank">Rank (1km radius)</option>
+					<option value="distance">Distance (nearest)</option>
+				</select>
+			</div>
+			<div id="places"></div>
+		</div>
 	</section>
 
 	<!-- ##########
@@ -327,6 +347,7 @@
 </footer>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWMhQqoDIBrLnt5sOsGaBTNczoj1V1jq8&libraries=places,geometry"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
