@@ -11,42 +11,73 @@
     width: 100%
 
 .map-data
-    height: 75vh
-    min-height: 75vh
     width: 100%
-    overflow-y: scroll
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
     &__select
         border: 2px solid $grey
         padding: 2px 3px
-        margin: 0 auto
+        margin: .5em 0
+        width: 49%
         &:focus
             outline: none
             border: 2px solid $greenish
 
 
 .map-list
+    height: 75vh
+    min-height: 75vh
+    width: 100%
+    overflow-y: scroll
+    border-top: 2px solid $greenish
+    border-bottom: 2px solid $greenish
     &__item
         background-color: $very-light-grey
         border-bottom: 1px solid $light-grey
         border-top: 1px solid $light-grey
         margin-top: 1em
+        padding: 1em 0.5em
 
     &__name
-        margin: 0.5em 0
+        margin: 0.25em 0
+        text-transform: capitalize
+        font-size: 1.2em
+
+
+    &__duration
+        display: block
+        margin: 0.25em 0
 
     &__button
         border: 2px solid $grey
         background-color: $greenish
         color: #fff
         box-shadow: 0 10px 25px -10px rgba(0,0,0,.5)
-        padding: 0.5em
-
+        padding: 0.25em
+        margin: .25em 0
+        transition: all .3s linear
+        &:focus,
+        &:hover
+            transform: scale(1.05) translateX(.25em)
+            box-shadow: 0 17px 20px -12px rgba(0,0,0,.5)
+            outline: none
     &__details
         background-color: $greenish
+        transition: all .5s
         &--hidden
             height: 0
+            opacity: 0
+            visibility: hidden
+            transition: all .3s linear
         &--visible
-            height: auto
+            height: 50px
+            opacity: 1
+            visibility: visible
+            transition: all .3s linear
+
+
 
 
 

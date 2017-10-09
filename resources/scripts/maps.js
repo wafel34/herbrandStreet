@@ -17,7 +17,7 @@ MAPS.initialize = function(config){
     var request = {
             location: this.cords,
             type: [config.type],
-            rankBy: (config.sort === 'rank') ? google.maps.places.RankBy.RATING : google.maps.places.RankBy.DISTANCE,
+            rankBy: (config.sort === 'rank') ? google.maps.places.RankBy.PROMINENCE : google.maps.places.RankBy.DISTANCE,
             radius: (config.sort === 'rank') ? '1000' : null
         };
 
@@ -148,7 +148,6 @@ MAPS.displayList = function(duration, place, marker){
     div.appendChild(btn);
     this.placesList.appendChild(div);
 
-
     //ADD EVENT LISTENERS WHEN INTERACTING WITH THE LIST
     div.addEventListener('mouseover',function(){
         marker.setIcon('');
@@ -165,8 +164,24 @@ MAPS.displayList = function(duration, place, marker){
                 return;
             }
 
-            details.innerHTML= 'works';
-        }.bind(this));
+            details.classList.toggle('map-list__details--hidden');
+            details.classList.toggle('map-list__details--visible');
+
+            var resultsData = {
+                url: result.url || '',
+                website: result.website || ''
+            };
+            details.innerHTML=
+
+                '<a href="'+resultsData.url+'" title="Link to place in google maps app" target="_blank">'+
+                    '<span class="map-list__icon fa fa-google" aria-hidden="true">'+
+                    '</span>'+
+                '</a>'+
+                '<a href="'+resultsData.website+'" title="Link to place\'s webiste" target="_blank">'+
+                    '<span class="map-list__icon fa fa-globe" aria-hidden="true">'+
+                    '</span>'+
+                '</a>';
+        });
     }.bind(this),false);
 
 

@@ -295,7 +295,6 @@
 			<!-- MAP GOES HERE-->
 		</div>
 		<div class="map-data">
-			<div id="input">
 				<select class="map-data__select" name="type" id="input-type"> <!--Supplement an id here instead of using 'name'-->
 				  <option value="museum">Museum</option>
 				  <option value="restaurant">Restaurant</option>
@@ -307,13 +306,12 @@
 				  <option value="movie_theater">Cinema/Theater</option>
 				</select>
 				<select class="map-data__select" name="sortBy" id="input-sort">
-					<option value="rank">Rank (1km radius)</option>
-					<option value="distance">Distance (nearest)</option>
+					<option value="rank">Prominence (1km radius)</option>
+					<option value="distance" selected>Distance (nearest)</option>
 				</select>
-			</div>
-			<div id="map-list" class="map-list">
-				<!--list of places hoes here-->
-			</div>
+		</div>
+		<div id="map-list" class="map-list">
+			<!--list of places hoes here-->
 		</div>
 	</section>
 
