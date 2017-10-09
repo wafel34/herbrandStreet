@@ -4,7 +4,7 @@ var MAPS = {
     infoWindow: {},
     distance: {},
     cords: {lat: 51.524813, lng: -0.125688},
-    placesList: document.getElementById('places')
+    placesList: document.getElementById('map-list')
 };
 
 //INITIALIZE THE MAP (FIRED ON THE START AND ON EVERY CHANGE OF DATA (FROM SLECT INPUT: TYPE AND SORT))
@@ -108,7 +108,6 @@ MAPS.calculateDistance = function(place, marker) {
             destinations: [point()],
             travelMode: 'WALKING'
         }, function(response,status){
-
             //get duration value (in miutes)
             var duration = response.rows[0].elements[0].duration.text;
 
@@ -122,12 +121,31 @@ MAPS.calculateDistance = function(place, marker) {
 //IT TAKSE 3 ARGUMENTS: duration - TRAVEL TIME IN MINUTES, place, AND marker - TO LINK LIST WITH MARKER ON THE MAP
 MAPS.displayList = function(duration, place, marker){
 
-    //CREATE DIV THAT WILL BE CONTAINER FOR EACH PLACE ITEM ON THE LIST
-    var div = document.createElement('div');
-    div.classList.add('map-list__item');
 
-    var span = '<span>'+place.name+', duration: '+duration+'</span>';
+    //CREATE DIV THAT WILL BE CONTAINER FOR EACH PLACE ITEM ON THE LIST
+    var div = document.createElement('div'),
+        btn = document.createElement('button'),
+        details = document.createElement('div');
+    div.classList.add('map-list__item');
+    btn.classList.add('map-list__button');
+    details.classList.add('map-list__details');
+    details.classList.add('map-list__details--hidden');
+
+    btn.innerHTML = 'SEE MORE DETAILS';
+
+    //var span = '<span>'+place.name+', duration: '+duration+'</span>';
+    var span =
+        '<h3 class="map-list__name">'+
+            place.name +
+        '</h3>'+
+        '<span class="map-list__duration">'+
+            'Distance by walking: ' +
+            '<b>' +duration+ '</b>' +
+        '</span>';
+
     div.innerHTML = span;
+    div.appendChild(details);
+    div.appendChild(btn);
     this.placesList.appendChild(div);
 
 
@@ -140,13 +158,14 @@ MAPS.displayList = function(duration, place, marker){
         marker.setIcon('https://developers.google.com/maps/documentation/javascript/images/circle.png');
     },false);
 
-    div.addEventListener('click',function(){
+    btn.addEventListener('click',function(){
         this.service.getDetails(place, function(result, status){
             if (status !== google.maps.places.PlacesServiceStatus.OK) {
                 console.error(status);
                 return;
             }
-            div.innerHTML += "DUPA";
+
+            details.innerHTML= 'works';
         }.bind(this));
     }.bind(this),false);
 
