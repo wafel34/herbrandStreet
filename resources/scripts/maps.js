@@ -128,20 +128,27 @@ MAPS.displayList = function(duration, place, marker){
         details = document.createElement('div');
     div.classList.add('map-list__item');
     btn.classList.add('map-list__button');
-    details.classList.add('map-list__details');
-    details.classList.add('map-list__details--hidden');
+    details.classList.add('map-list__details-list');
+    details.classList.add('map-list__details-list--hidden');
 
     btn.innerHTML = 'SEE MORE DETAILS';
 
     //var span = '<span>'+place.name+', duration: '+duration+'</span>';
-    var span =
-        '<h3 class="map-list__name">'+
-            place.name +
-        '</h3>'+
-        '<span class="map-list__duration">'+
-            'Distance by walking: ' +
-            '<b>' +duration+ '</b>' +
-        '</span>';
+    var span = '';
+
+    if (place.photos !== undefined) {
+            span += '<img src="'+ place.photos[0].getUrl({maxWidth: 75, maxHeight: 750})+'" alt="">';
+    } else {
+            span += '<img src="'+ place.icon+'" alt="">';
+    }
+        span +=
+            '<h3 class="map-list__name">'+
+                place.name +
+            '</h3>'+
+            '<span class="map-list__duration">'+
+                'Distance by walking: ' +
+                '<b>' +duration+ '</b>' +
+            '</span>';
 
     div.innerHTML = span;
     div.appendChild(details);
@@ -164,23 +171,51 @@ MAPS.displayList = function(duration, place, marker){
                 return;
             }
 
-            details.classList.toggle('map-list__details--hidden');
-            details.classList.toggle('map-list__details--visible');
+            details.classList.toggle('map-list__details-list--hidden');
+            details.classList.toggle('map-list__details-list--visible');
 
-            var resultsData = {
-                url: result.url || '',
-                website: result.website || ''
-            };
-            details.innerHTML=
 
-                '<a href="'+resultsData.url+'" title="Link to place in google maps app" target="_blank">'+
-                    '<span class="map-list__icon fa fa-google" aria-hidden="true">'+
-                    '</span>'+
-                '</a>'+
-                '<a href="'+resultsData.website+'" title="Link to place\'s webiste" target="_blank">'+
+            var resultsData = '';
+
+                console.log(result);
+                if (result.url !==undefined){
+                    resultsData +=
+                        '<a class="details-list__link" href="'+result.url+'" title="Link to place in google maps app" target="_blank">'+
+                            '<span class="details-list__icon fa fa-google" aria-hidden="true">'+
+                            '</span>'+
+                            '<span class="details-list__description">'+
+                                'Open in Maps'+
+                            '</span>'+
+                        '</a>';
+                }
+                if (result.website !== undefined) {
+                    resultsData +=
+                        '<a class="details-list__link" href="'+result.website+'" title="Link to place in google maps app" target="_blank">'+
+                            '<span class="details-list__icon fa fa-globe" aria-hidden="true">'+
+                            '</span>'+
+                            '<span class="details-list__description">'+
+                                'Website'+
+                            '</span>'+
+                        '</a>';
+                }
+                if (result.rating !== undefined) {
+                    resultsData +=
+                            '<span class="details-list__icon fa fa-star" aria-hidden="true">'+
+                            '</span>'+
+                            '<span class="details-list__description">'+
+                                result.rating+
+                            '</span>';
+                }
+
+
+
+
+            details.innerHTML= resultsData;
+
+                /*'<a href="'+resultsData.website+'" title="Link to place\'s webiste" target="_blank">'+
                     '<span class="map-list__icon fa fa-globe" aria-hidden="true">'+
                     '</span>'+
-                '</a>';
+                '</a>';*/
         });
     }.bind(this),false);
 
