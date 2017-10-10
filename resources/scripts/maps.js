@@ -137,9 +137,9 @@ MAPS.displayList = function(duration, place, marker){
     var span = '';
 
     if (place.photos !== undefined) {
-            span += '<img src="'+ place.photos[0].getUrl({maxWidth: 75, maxHeight: 750})+'" alt="">';
+            span += '<img class="map-list__image" src="'+ place.photos[0].getUrl({maxWidth: 75, maxHeight: 75})+'" alt="">';
     } else {
-            span += '<img src="'+ place.icon+'" alt="">';
+            span += '<img class="map-list__image" src="'+ place.icon+'" alt="">';
     }
         span +=
             '<h3 class="map-list__name">'+
@@ -174,10 +174,8 @@ MAPS.displayList = function(duration, place, marker){
             details.classList.toggle('map-list__details-list--hidden');
             details.classList.toggle('map-list__details-list--visible');
 
-
             var resultsData = '';
 
-                console.log(result);
                 if (result.url !==undefined){
                     resultsData +=
                         '<a class="details-list__link" href="'+result.url+'" title="Link to place in google maps app" target="_blank">'+
@@ -190,7 +188,7 @@ MAPS.displayList = function(duration, place, marker){
                 }
                 if (result.website !== undefined) {
                     resultsData +=
-                        '<a class="details-list__link" href="'+result.website+'" title="Link to place in google maps app" target="_blank">'+
+                        '<a class="details-list__link" href="'+result.website+'" title="Link to webiste of the place" target="_blank">'+
                             '<span class="details-list__icon fa fa-globe" aria-hidden="true">'+
                             '</span>'+
                             '<span class="details-list__description">'+
@@ -200,22 +198,18 @@ MAPS.displayList = function(duration, place, marker){
                 }
                 if (result.rating !== undefined) {
                     resultsData +=
-                            '<span class="details-list__icon fa fa-star" aria-hidden="true">'+
-                            '</span>'+
-                            '<span class="details-list__description">'+
-                                result.rating+
-                            '</span>';
+                            '<div class="details-list__item">'+
+                                '<span class="details-list__icon fa fa-star" aria-hidden="true">'+
+                                '</span>'+
+                                '<span class="details-list__description">'+
+                                    result.rating+
+                                '</span>'+
+                            '</div>';
                 }
-
-
-
 
             details.innerHTML= resultsData;
 
-                /*'<a href="'+resultsData.website+'" title="Link to place\'s webiste" target="_blank">'+
-                    '<span class="map-list__icon fa fa-globe" aria-hidden="true">'+
-                    '</span>'+
-                '</a>';*/
+            details.firstChild.focus();
         });
     }.bind(this),false);
 
