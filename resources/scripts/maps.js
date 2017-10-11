@@ -275,7 +275,7 @@ DOMHANDLER.init = function(){
 
         inputType.addEventListener('change', this.clickListener.bind(this), false);
         inputSort.addEventListener('change', this.clickListener.bind(this), false);
-}
+};
 
 
 DOMHANDLER.clickListener = function(e) {
@@ -292,14 +292,8 @@ DOMHANDLER.clickListener = function(e) {
     config = {
         type: this.getType(),
         sort: this.getSort()
-    }
+    };
 
     MAPS.initialize(config);
 
 };
-
-DOMHANDLER.init();
-MAPS.initialize({
-    type: document.getElementById('input-type').value,
-    sort: document.getElementById('input-sort')
-});
