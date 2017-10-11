@@ -1,20 +1,25 @@
+//whole location section
 .location
     display: flex
     flex-wrap: wrap
 
+//make header to take 100%
 .location-header
     @extend .gallery-header
     flex: 0 1 100%
 
+//div where the map is displayed
 .map-display
     min-height: 50vh
     width: 100%
 
+//two SELECT fields
 .map-data
     width: 100%
     display: flex
-    flex-direction: row
+    flex-direction: column
     justify-content: space-between
+    align-items: center
     border-bottom: 2px solid $greenish
     box-shadow: 0px 5px 5px -2px rgba(0,0,0,.5)
     position: relative
@@ -23,12 +28,12 @@
         border: 2px solid $grey
         padding: 2px 3px
         margin: .5em 0
-        width: 49%
+        width: 98%
         &:focus
             outline: none
             border: 2px solid $greenish
 
-
+//list of places
 .map-list
     height: 60vh
     min-height: 60vh
@@ -43,9 +48,9 @@
 
     &__item
         background-color: $very-light-grey
-        border-bottom: 1px solid $light-grey
-        border-top: 1px solid $light-grey
-        margin-top: 1em
+        border: 1px solid $light-grey
+        width: 98%
+        margin: 1em auto 0 auto
         padding: 1em 0.5em
 
     &__name
@@ -78,7 +83,7 @@
     &__details-list
         display: flex
         color: $grey
-        transition: height .3s linear, opacity .6s ease-in-out
+        transition: height .2s linear, opacity .4s ease-in-out
         margin-top: .25em
         &--hidden
             height: 0
@@ -89,7 +94,7 @@
             opacity: 1
             visibility: visible
 
-
+//list of details for particular place (shown and hidden on click)
 .details-list
     &__link
         color: $grey
@@ -113,66 +118,29 @@
         padding: 10px 0
 
 
-// contact
-.contact-header
-    @extend .facilities-header
-    text-align: left
-
-.contact
-    background-color: $light-grey
-    text-align: center
-    color: $grey
-
-//
-
-.info
+//GOOGLE MAPS - INFO WINDOW STYLING
+.locality,
+.country-name,
+.place-name,
+.place-link
     display: block
-    padding: 1em 0
-
-.form
-    display: flex
-    flex-direction: column
-    align-items: center
-    text-align: center
-    > *
-        width: 80%
-
-    &__input
-        border: 2px solid $grey
-        background-color: $light-grey
-        padding: .5em 1em
-        color: $grey
-        transition: all .3s linear
-        display: block
-        &:focus
-            transform: scale(1.05)
-            border: 2px solid $greenish
-            outline: none
-    .textarea
-        height: 150px
-
-    &__label
-        padding: .5em 0 .25em 0
-
-    &__submit
-        border: 2px solid $grey
-        margin-top: 1em
-        padding: .5em 1em
-        background-color: $greenish
-        color: #fff
-        text-transform: uppercase
-        font-weight: 600
-        font-size: 1.6em
-        margin-bottom: 2em
-        box-shadow: 0 20px 25px -10px rgba(0,0,0,.5)
-        transition: all .3s linear
-        &:focus,
-        &:hover
-            transform: scale(1.05)
-            box-shadow: 0 40px 25px -20px rgba(0,0,0,.5)
-            outline: none
+.place-link
+    margin-top: 5px
 
 
-@media screen and (min-width: 798px)
-    .form > *
-        width: 50%
+
+@media screen and (min-width: 400px)
+    .map-data
+        flex-direction: row
+        &__select
+            width: 49%
+
+
+@supports (display: flex)
+    @media screen and (min-width: 798px)
+        .map-list
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-around
+            &__item
+                width: 49%

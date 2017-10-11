@@ -125,7 +125,8 @@ MAPS.displayList = function(duration, place, marker){
     //CREATE DIV THAT WILL BE CONTAINER FOR EACH PLACE ITEM ON THE LIST
     var div = document.createElement('div'),
         btn = document.createElement('button'),
-        details = document.createElement('div');
+        details = document.createElement('div'),
+         span = '';
     div.classList.add('map-list__item');
     btn.classList.add('map-list__button');
     details.classList.add('map-list__details-list');
@@ -133,27 +134,29 @@ MAPS.displayList = function(duration, place, marker){
 
     btn.innerHTML = 'SEE MORE DETAILS';
 
-    //var span = '<span>'+place.name+', duration: '+duration+'</span>';
-    var span = '';
 
+    //if place has photos add an image with photo and append it to span variable. if no image found, use icon
     if (place.photos !== undefined) {
             span += '<img class="map-list__image" src="'+ place.photos[0].getUrl({maxWidth: 75, maxHeight: 75})+'" alt="">';
     } else {
             span += '<img class="map-list__image" src="'+ place.icon+'" alt="">';
     }
-        span +=
-            '<h3 class="map-list__name">'+
-                place.name +
-            '</h3>'+
-            '<span class="map-list__duration">'+
-                'Distance by walking: ' +
-                '<b>' +duration+ '</b>' +
-            '</span>';
+
+    //BELOW COMMANDS ARE ADDING CONTENT TO EACH LIST ITEM: HEADER, DURATION INFO, DETAILS DIV AND THE see more details BUTTON
+    span +=
+        '<h3 class="map-list__name">'+
+            place.name +
+        '</h3>'+
+        '<span class="map-list__duration">'+
+            'Distance by walking: ' +
+            '<b>' +duration+ '</b>' +
+        '</span>';
 
     div.innerHTML = span;
     div.appendChild(details);
     div.appendChild(btn);
     this.placesList.appendChild(div);
+
 
     //ADD EVENT LISTENERS WHEN INTERACTING WITH THE LIST
     div.addEventListener('mouseover',function(){
@@ -164,18 +167,43 @@ MAPS.displayList = function(duration, place, marker){
         marker.setIcon('https://developers.google.com/maps/documentation/javascript/images/circle.png');
     },false);
 
-    btn.addEventListener('click',function(){
+
+    //AFTER YOU CLICK ON A DIV, OPEN INFO WINDOW ON THE MARKER
+    div.addEventListener('click',function(){
+        this.service.getDetails(place, function(result, status){
+            if (status !== google.maps.places.PlacesServiceStatus.OK) {
+                console.error(status);
+                return;
+            }
+            this.infoWindow.setContent(
+                '<span class="place-name"><b>'+result.name+'</b></span>'+
+                result.adr_address+
+                '<a class="place-link" href="'+result.url+'" target="_blank">Open in Maps'+
+                '</a>'
+            );
+            this.infoWindow.open(this.map, marker);
+        }.bind(this));
+    }.bind(this),false);
+
+
+    //EVENT LISTENER FOR 'SEE MORE DETAILS' BUTTON ON PLACES LIST
+    btn.addEventListener('click',function(e){
+        //stop propagation (don't display the info window in map that is fired when div clicked)
+        e.stopPropagation();
         this.service.getDetails(place, function(result, status){
             if (status !== google.maps.places.PlacesServiceStatus.OK) {
                 console.error(status);
                 return;
             }
 
+            //ON CLICK TOGGLE THE VISIBILITY OF THE DIV
             details.classList.toggle('map-list__details-list--hidden');
             details.classList.toggle('map-list__details-list--visible');
 
+            //BELOW VARIABLE WILL BE INSERTED INTO details DIV
             var resultsData = '';
 
+            //IF PLACE HAS result.url ADD IT TO RESULT DATA CONTENT
                 if (result.url !==undefined){
                     resultsData +=
                         '<a class="details-list__link" href="'+result.url+'" title="Link to place in google maps app" target="_blank">'+
@@ -186,6 +214,8 @@ MAPS.displayList = function(duration, place, marker){
                             '</span>'+
                         '</a>';
                 }
+
+                //IF PLACE HAS result.website ADD IT TO RESULT DATA CONTENT
                 if (result.website !== undefined) {
                     resultsData +=
                         '<a class="details-list__link" href="'+result.website+'" title="Link to webiste of the place" target="_blank">'+
@@ -196,6 +226,8 @@ MAPS.displayList = function(duration, place, marker){
                             '</span>'+
                         '</a>';
                 }
+
+                //IF PLACE HAS result.rating ADD IT TO RESULT DATA CONTENT
                 if (result.rating !== undefined) {
                     resultsData +=
                             '<div class="details-list__item">'+
@@ -207,8 +239,8 @@ MAPS.displayList = function(duration, place, marker){
                             '</div>';
                 }
 
+            //INSERT THE CONTENT INTO THE DIV AND FOCUS FIRST ELEMENT INSIDE
             details.innerHTML= resultsData;
-
             details.firstChild.focus();
         });
     }.bind(this),false);
