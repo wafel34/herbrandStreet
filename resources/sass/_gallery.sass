@@ -17,6 +17,28 @@
         align-self: center
 
 
+//full screen gallery
+.full-screen-gallery
+    position: fixed
+    background-color: rgba(0,0,0,.75)
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    overflow-y: scroll
+    &--hidden
+        display: none
+        opacity: 0
+        visibility: hidden
+
+    &__image
+        max-width: 1024px
+        width: 80%
+        height: auto
+        display: block
+        margin: 0 auto 1em auto
+
+
 @supports (grid-area: auto)
     .gallery
         display: grid
