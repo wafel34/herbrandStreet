@@ -19,8 +19,9 @@ var DOMHANDLER = {
 //INIT MAIN EVENTS IN THE TOM
 DOMHANDLER.init = function(){
     var inputType = document.getElementById('input-type'),
-        inputSort = document.getElementById('input-sort');
-        gallery = document.getElementById('gallery');
+        inputSort = document.getElementById('input-sort'),
+        gallery = document.querySelectorAll('.gallery__link');
+        arr = Array.prototype.slice.call(gallery);
 
         //SET TYPES ON DOMHANDLER OBJECT AND ADD LISTENERS TO THOSE INPUTS
         this.setInputType(inputType.value);
@@ -29,7 +30,9 @@ DOMHANDLER.init = function(){
         inputSort.addEventListener('change', this.clickListener.bind(this), false);
 
         //ADD LISTENER FOR GALLERY
-        gallery.addEventListener('click', GALLERY.init, false);
+        arr.map(function(item){
+            item.addEventListener('click', GALLERY.init, false);
+        });
 };
 
 

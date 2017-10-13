@@ -22,12 +22,12 @@
 //full screen gallery
 .full-screen-gallery
     position: fixed
-    background-color: rgba(0,0,0,.75)
     top: 0
     left: 0
     bottom: 0
     right: 0
     overflow-y: scroll
+    z-index: 100
     &--hidden
         display: none
         opacity: 0
@@ -44,6 +44,7 @@
         height: auto
         display: block
         margin: 0 auto 1em auto
+        border: 5px solid $greenish
 
     &__button
         position: fixed
