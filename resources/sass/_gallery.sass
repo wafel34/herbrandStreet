@@ -30,6 +30,11 @@
         display: none
         opacity: 0
         visibility: hidden
+    &--visible
+        display: block
+        opacity: 1
+        visibility: visible
+
 
     &__image
         max-width: 1024px
@@ -37,6 +42,12 @@
         height: auto
         display: block
         margin: 0 auto 1em auto
+
+    &__button
+        position: fixed
+        bottom: 20px
+        right: 20px
+
 
 
 @supports (grid-area: auto)
