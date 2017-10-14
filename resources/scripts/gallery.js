@@ -13,11 +13,21 @@ var GALLERY = {
 GALLERY.init = function(e){
     e.preventDefault();
 
+
     //below 2 variables are checking if clicked element was image (click) or link (key press)
     //and gets source base on that
-    var eventSource = (e.srcElement.nodeName !== 'IMG') ? e.srcElement.firstChild : e.srcElement;
-        linkElement = (e.srcElement.nodeName !== 'IMG') ? e.srcElement : e.srcElement.parentElement;
+    var eventSource = {},
+        linkElement = {};
         content = '';
+
+        if(!e.srcElement) {
+            eventSource = (e.target.nodeName !== 'IMG') ? e.target.firstChild : e.target;
+            linkElement = (e.target.nodeName !== 'IMG') ? e.target : e.target.parentElement;
+        } else {
+            eventSource = (e.srcElement.nodeName !== 'IMG') ? e.srcElement.firstChild : e.srcElement;
+            linkElement = (e.srcElement.nodeName !== 'IMG') ? e.srcElement : e.srcElement.parentElement;
+        }
+
         //bellow is turning html collection into array
         arr = Array.prototype.slice.call( this.collection );
 
@@ -55,10 +65,23 @@ GALLERY.init = function(e){
 
         //close gallery when clicked anywhere outside image
         this.div.addEventListener('click', function(e){
-            if (!e.srcElement.src) {
-                this.div.classList.add('full-screen-gallery--hidden');
-                this.div.classList.remove('full-screen-gallery--visible');
-                linkElement.focus();
+            //check if browser supporst e.srcElement
+            if (e.srcElement) {
+
+                //if element that was clicked wasn't image - close the div
+                if (!e.srcElement.src) {
+                    this.div.classList.add('full-screen-gallery--hidden');
+                    this.div.classList.remove('full-screen-gallery--visible');
+                    linkElement.focus();
+                }
+            } else {
+
+                //if element that was clicked wasn't image - close the div
+                if (!e.target.src) {
+                    this.div.classList.add('full-screen-gallery--hidden');
+                    this.div.classList.remove('full-screen-gallery--visible');
+                    linkElement.focus();
+                }
             }
         }.bind(this), false);
 

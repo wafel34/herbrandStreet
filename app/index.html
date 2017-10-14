@@ -89,6 +89,12 @@
 	</section>
 
 	<!-- ##########
+		WEATHER
+	#########   -->
+	<div class="weather" id="weather">
+		<h3 class="weather__header">Weather in London today</h3>
+	</div>
+	<!-- ##########
 		OVERVIEW
 	#########   -->
 	<section class="overview" id="overview" role="region">
@@ -125,165 +131,167 @@
 	#########   -->
 	<section class="facilities" id="facilities" role="region" aria-labelledby="facilities-header">
 		<h2 id="facilities-header" class="facilities-header">Facilities</h2>
-		<table class="table">
-			<tbody>
+		<div class="table-container">
+			<table class="table">
+				<tbody>
 
-				<!--   PROPERTY TYPE    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Property Type:</span></td>
-				</tr>
-				<tr>
-					<td><span>Apartment</span></td>
-					<td><span>Floor 2</span></td>
-				</tr>
+					<!--   PROPERTY TYPE    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Property Type:</span></td>
+					</tr>
+					<tr>
+						<td><span>Apartment</span></td>
+						<td><span>Floor 2</span></td>
+					</tr>
 
-				<!--   FOOT AREA    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Foot area:</span></td>
-				</tr>
-				<tr>
-					<td><span>669 sq. ft</span></td>
-					<td><span>65 sq. m.</span></td>
-				</tr>
+					<!--   FOOT AREA    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Foot area:</span></td>
+					</tr>
+					<tr>
+						<td><span>669 sq. ft</span></td>
+						<td><span>65 sq. m.</span></td>
+					</tr>
 
-				<!--   HOUSE RULES    -->
-				<tr class="table__header">
-					<td colspan="2"><span>House rules:</span></td>
-				</tr>
-				<tr>
-					<td>
-						<span>Max. occupancy: 6</span>
-						<span>children welcome</span>
-					</td>
-					<td>
-						<span>non smoking only</span>
-						<span>pets not allowed</span>
-					</td>
-				</tr>
+					<!--   HOUSE RULES    -->
+					<tr class="table__header">
+						<td colspan="2"><span>House rules:</span></td>
+					</tr>
+					<tr>
+						<td>
+							<span>Max. occupancy: 6</span>
+							<span>children welcome</span>
+						</td>
+						<td>
+							<span>non smoking only</span>
+							<span>pets not allowed</span>
+						</td>
+					</tr>
 
-				<!--   LOCATION TYPE    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Location Type:</span></td>
-				</tr>
-				<tr>
-					<td><span>City centre</span></td>
-					<td><span>London</span></td>
-				</tr>
+					<!--   LOCATION TYPE    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Location Type:</span></td>
+					</tr>
+					<tr>
+						<td><span>City centre</span></td>
+						<td><span>London</span></td>
+					</tr>
 
-				<!--   GENERAL    -->
-				<tr class="table__header">
-					<td colspan="2"><span>General:</span></td>
-				</tr>
-				<tr>
-					<td>
-						<span>Basic Soaps</span>
-						<span>Broadband Access</span>
-						<span>Hair Dryer</span>
-						<span>Heating</span>
-						<span>Iron and Board</span>
-						<span>Linens Provided</span>
-						<span>Living Room</span>
-					</td>
-					<td>
-						<span>Parking On Street</span>
-						<span>Security System</span>
-						<span>Sofa Bed</span>
-						<span>Towels Provided</span>
-						<span>Tumble Dryer</span>
-						<span>Washing Machine</span>
-						<span>Wireless Internet</span>
-					</td>
-				</tr>
+					<!--   GENERAL    -->
+					<tr class="table__header">
+						<td colspan="2"><span>General:</span></td>
+					</tr>
+					<tr>
+						<td>
+							<span>Basic Soaps</span>
+							<span>Broadband Access</span>
+							<span>Hair Dryer</span>
+							<span>Heating</span>
+							<span>Iron and Board</span>
+							<span>Linens Provided</span>
+							<span>Living Room</span>
+						</td>
+						<td>
+							<span>Parking On Street</span>
+							<span>Security System</span>
+							<span>Sofa Bed</span>
+							<span>Towels Provided</span>
+							<span>Tumble Dryer</span>
+							<span>Washing Machine</span>
+							<span>Wireless Internet</span>
+						</td>
+					</tr>
 
-				<!--   KITCHEN    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Kitchen:</span></td>
-				</tr>
-				<tr>
-					<td>
-						<span>4 Ring Stove</span>
-						<span>Coffee Maker</span>
-						<span>Cooking Utensils</span>
-						<span>Dishes and Utensils</span>
-						<span>Dishwasher</span>
-						<span>Freezer</span>
-					</td>
-					<td>
-						<span>Grill</span>
-						<span>Kitchen</span>
-						<span>Microwave</span>
-						<span>Oven</span>
-						<span>Refrigerator</span>
-						<span>Toaster</span>
-					</td>
-				</tr>
+					<!--   KITCHEN    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Kitchen:</span></td>
+					</tr>
+					<tr>
+						<td>
+							<span>4 Ring Stove</span>
+							<span>Coffee Maker</span>
+							<span>Cooking Utensils</span>
+							<span>Dishes and Utensils</span>
+							<span>Dishwasher</span>
+							<span>Freezer</span>
+						</td>
+						<td>
+							<span>Grill</span>
+							<span>Kitchen</span>
+							<span>Microwave</span>
+							<span>Oven</span>
+							<span>Refrigerator</span>
+							<span>Toaster</span>
+						</td>
+					</tr>
 
-				<!--   DINING    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Dining:</span></td>
-				</tr>
-				<tr>
-					<td><span>Dining Area</span></td>
-					<td><span>Seating for 6 people</span></td>
-				</tr>
+					<!--   DINING    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Dining:</span></td>
+					</tr>
+					<tr>
+						<td><span>Dining Area</span></td>
+						<td><span>Seating for 6 people</span></td>
+					</tr>
 
-				<!--   BATHROOMS    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Bathrooms:</span></td>
-				</tr>
-				<tr>
-					<td><span>Bathroom 1 - Toilet , Bath with Shower</span></td>
-					<td><span>Bathroom 2 - Toilet , Shower Enclosure</span></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<span>
-						There are 2 bathrooms in this property. The first is a shower room with a toilet and sink, and the second is a bathroom with a bath tub, toilet and sink. Both bathrooms are designed in a modern way.
-						</span>
-					</td>
-				</tr>
+					<!--   BATHROOMS    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Bathrooms:</span></td>
+					</tr>
+					<tr>
+						<td><span>Bathroom 1 - Toilet , Bath with Shower</span></td>
+						<td><span>Bathroom 2 - Toilet , Shower Enclosure</span></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span>
+							There are 2 bathrooms in this property. The first is a shower room with a toilet and sink, and the second is a bathroom with a bath tub, toilet and sink. Both bathrooms are designed in a modern way.
+							</span>
+						</td>
+					</tr>
 
-				<!--   BEDROOMS    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Bedrooms:</span></td>
-				</tr>
-				<tr>
-					<td>Bedroom 1 - 1 Large Double Bed </td>
-					<td>Bedroom 2 - 2 Single Bed</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<span>
-							Lounge - 1 Sofa bed/Futon , Sofa bed can be made up as two separate single beds.
-							In this property there are 2 bedrooms, 2 bathrooms, open plan kitchen and a lounge area with a sofa bed. In the larger bedroom, there are 2 single beds and en suite bathroom/WC. For the second bedroom with large double bed, the shower room / WC is off the corridor. For 6 people, the lounge area can also be converted into a very comfortable bedroom which sleeps two.
-						</span>
-					</td>
-				</tr>
+					<!--   BEDROOMS    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Bedrooms:</span></td>
+					</tr>
+					<tr>
+						<td>Bedroom 1 - 1 Large Double Bed </td>
+						<td>Bedroom 2 - 2 Single Bed</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span>
+								Lounge - 1 Sofa bed/Futon , Sofa bed can be made up as two separate single beds.
+								In this property there are 2 bedrooms, 2 bathrooms, open plan kitchen and a lounge area with a sofa bed. In the larger bedroom, there are 2 single beds and en suite bathroom/WC. For the second bedroom with large double bed, the shower room / WC is off the corridor. For 6 people, the lounge area can also be converted into a very comfortable bedroom which sleeps two.
+							</span>
+						</td>
+					</tr>
 
-				<!--   ENTERTAINMENT    -->
-				<tr class="table__header">
-					<td colspan="2"><span>Entertainment:</span></td>
-				</tr>
-				<tr>
-					<td>
-						<span>autumn foliage</span>
-						<span>churches</span>
-						<span>cinemas</span>
-						<span>library</span>
-						<span>live theatre</span>
-						<span>museums</span>
-					</td>
-					<td>
-						<span>playground</span>
-						<span>recreation centre</span>
-						<span>restaurants</span>
-						<span>synagogues</span>
-						<span>zoo</span>
-						<span>pubs</span>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+					<!--   ENTERTAINMENT    -->
+					<tr class="table__header">
+						<td colspan="2"><span>Entertainment:</span></td>
+					</tr>
+					<tr>
+						<td>
+							<span>autumn foliage</span>
+							<span>churches</span>
+							<span>cinemas</span>
+							<span>library</span>
+							<span>live theatre</span>
+							<span>museums</span>
+						</td>
+						<td>
+							<span>playground</span>
+							<span>recreation centre</span>
+							<span>restaurants</span>
+							<span>synagogues</span>
+							<span>zoo</span>
+							<span>pubs</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</section>
 
 	<!-- ##########
@@ -343,6 +351,7 @@
 <div tabindex="0" class="full-screen-gallery full-screen-gallery--hidden" id="full-screen-gallery">
 
 </div>
+
 
 <!-- ##########
 	FOOTER

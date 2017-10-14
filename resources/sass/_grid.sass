@@ -1,22 +1,69 @@
 @supports (grid-area: auto)
     @media screen and (min-width: 1000px)
         .site
-            max-width: none
+            max-width: 1900px
+            margin: 0 auto
             display: grid
-            grid-template-columns: minmax(5em, 1fr) minmax(1000px, auto) minmax(5em, 1fr)
-            grid-template-areas: ". details weather" ". overview ." ". gallery-header ." "gallery gallery gallery" "location location location" ". facilities ." ". contact ."
+            grid-auto-flow: dense
+            grid-template-columns: minmax(auto, 10em) minmax(1000px,1500px) minmax(auto,15em)
+            grid-template-areas: "details details weather" "overview overview overview" "gallery-header gallery-header gallery-header" "gallery gallery gallery" "location location location" "facilities facilities facilities" "contact contact contact"
 
         .details
             grid-area: details
         .overview
             grid-area: overview
+            padding: 0 150px
         .gallery-header
             grid-area: gallery-header
+            padding-left: 150px
         .gallery
             grid-area: gallery
         .facilities
             grid-area: facilities
+            .table-container
+                padding: 0 150px
         .location
             grid-area: location
+            display: grid
+            grid-template-columns: 2fr 1fr
+            grid-template-areas: "header header" "map-display map-select" "map-display map-list"
+            .location-header
+                grid-area: header
+            .map-display
+                grid-area: map-display
+            .map-data
+                grid-area: map-select
+            .map-list
+                grid-area: map-list
+                border-left: 1px solid $greenish
+                &__item
+                    width: 100%
         .contact
             grid-area: contact
+
+    @media screen and (min-width: 1200px)
+        .weather
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            grid-area: weather
+            border-left: 1px dashed $light-grey
+
+            &__header
+                color: $grey
+                font-size: 1.5em
+                text-align: center
+                margin: .5em 0
+            &__icon
+                height: 75px
+                background-color: $greenish
+                border-radius: 50%
+                padding: 5px
+
+            &__text
+                display: block
+                margin-top: 5px
+                font-size: 1.2em
+                color: $grey
+                font-weight: 600
