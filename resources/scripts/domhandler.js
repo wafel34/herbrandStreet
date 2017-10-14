@@ -31,7 +31,7 @@ DOMHANDLER.init = function(){
 
         //ADD LISTENER FOR GALLERY
         arr.map(function(item){
-            item.addEventListener('click', GALLERY.init, false);
+            item.addEventListener('click', GALLERY.init.bind(GALLERY), false);
         });
 };
 

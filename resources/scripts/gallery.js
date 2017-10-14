@@ -1,22 +1,32 @@
-var GALLERY = {
+//GALLERY OBJECT WITH MAIN PROPERTIES ON IT
 
+var GALLERY = {
+    collection: document.querySelectorAll('.gallery__item'),
+    div: document.getElementById('full-screen-gallery'),
+    closeBtn: document.createElement('button'),
+    checkIfFiredAlready: false,
+    windowWidth: window.innerWidth
 };
 
 
+//FUNCTION THAT INITIALIZE GALLERY EVERYTIME IMAGE IS CLICKED
 GALLERY.init = function(e){
     e.preventDefault();
-    console.log(e);
-    var collection = document.querySelectorAll('.gallery__item'),
-        arr = Array.prototype.slice.call( collection ),
-        div = document.getElementById('full-screen-gallery'),
-        closeBtn = document.createElement('button');
-        eventSource = (e.srcElement.nodeName !== 'IMG') ? e.srcElement.firstChild : e.srcElement;
+
+    //below 2 variables are checking if clicked element was image (click) or link (key press)
+    //and gets source base on that
+    var eventSource = (e.srcElement.nodeName !== 'IMG') ? e.srcElement.firstChild : e.srcElement;
         linkElement = (e.srcElement.nodeName !== 'IMG') ? e.srcElement : e.srcElement.parentElement;
         content = '';
-        div.classList.add('full-screen-gallery--visible');
-        closeBtn.innerHTML = 'CLOSE GALLERY';
-        closeBtn.classList.add('full-screen-gallery__button');
+        //bellow is turning html collection into array
+        arr = Array.prototype.slice.call( this.collection );
 
+        //add classes and attributes to html elements
+        this.div.classList.add('full-screen-gallery--visible');
+        this.closeBtn.classList.add('full-screen-gallery__button');
+        this.closeBtn.setAttribute('aria-label', 'Press enter to close gallery, use buttons to scroll gallery');
+
+        //map through colection of images and append data to 'content' variable
         arr.map(function(item, index){
             var id = index+1;
             if(item.src === eventSource.src){
@@ -27,31 +37,54 @@ GALLERY.init = function(e){
                 '<img class="full-screen-gallery__image" src="./images/'+id+'.jpg" alt="">';
 
             }
-        });
+        }.bind(this));
 
-        closeBtn.addEventListener('click', function(e){
-            div.classList.add('full-screen-gallery--hidden');
-            div.classList.remove('full-screen-gallery--visible');
+        //when close button is clicked, remove the class and focus previously opened link
+        this.closeBtn.addEventListener('click', function(e){
+            this.div.classList.add('full-screen-gallery--hidden');
+            this.div.classList.remove('full-screen-gallery--visible');
             linkElement.focus();
+        }.bind(this), false);
 
-        }, false);
+        //when button is pressed with keybord, check if it WAS NOT enter and prevent for focusing other elements
+        this.closeBtn.addEventListener('keydown', function(e){
+            if (e.keyCode !== 13) {
+                this.div.focus();
+            }
+        }.bind(this), false);
 
-        div.addEventListener('click', function(e){
+        //close gallery when clicked anywhere outside image
+        this.div.addEventListener('click', function(e){
             if (!e.srcElement.src) {
-                div.classList.add('full-screen-gallery--hidden');
-                div.classList.remove('full-screen-gallery--visible');
+                this.div.classList.add('full-screen-gallery--hidden');
+                this.div.classList.remove('full-screen-gallery--visible');
                 linkElement.focus();
             }
-        }, false);
+        }.bind(this), false);
 
-        div.innerHTML = content;
-        div.appendChild(closeBtn);
-        document.body.appendChild(div);
+        //append mapped content to the div and add button in the end
+        this.div.innerHTML = content;
+        this.div.appendChild(this.closeBtn);
 
+        //append div to body
+        document.body.appendChild(this.div);
 
-        closeBtn.focus();
+        //focus the current div (this is to make possible scrolling with arrow keys)
+        this.div.focus();
+
+        //Get offset of active element (the one that was clicked on thumbnail) and scroll to it's position
         var oT = document.getElementById('image-active').offsetTop;
+        this.div.scrollTop = oT;
 
+        //add text to the close button
+        this.closeBtn.innerHTML = '<span class="fa fa-times"></span>';
 
-        div.scrollTop = oT;
+        //if window is wider than 1000px alert instruction about gallery scrolling
+        //on wider screen image may take full height and it may be hard to figure out how to navigate through gallery
+        if (this.windowWidth > 1000) {
+            if (this.checkIfFiredAlready === false){
+                alert('TO VIEW GALLERY SCROLL UP OR DOWN\n\nOR USE ARROW KEYS');
+            }
+            this.checkIfFiredAlready = true;
+        }
 };
