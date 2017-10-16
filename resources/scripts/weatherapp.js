@@ -15,16 +15,16 @@ WEATHERAPI.init = function() {
             console.err('Status error: ' + xhr.status);
         }
 
-        var results = {};
+        var results = {},
             containerDiv = document.getElementById('weather'),
             image = document.createElement('img'),
-            div = document.createElement('div'),
-            image.classList.add('weather__icon');
+            div = document.createElement('div');
 
+            image.classList.add('weather__icon');
             if (!data.srcElement){
                 results = JSON.parse(data.target.response);
             } else {
-                results = JSON.parse(data.target.response);
+                results = JSON.parse(data.srcElement.response);
             }
 
             div.innerHTML =
@@ -32,11 +32,11 @@ WEATHERAPI.init = function() {
                     results.weather[0].main +
                 '</span>'+
                 '<span class="weather__text">'+
-                    results.main.temp + ' °C'+
+                    results.main.temp.toFixed(1) + ' °C'+
                 '</span>';
 
 
-            image.src = 'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png'
+            image.src = 'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png';
             containerDiv.appendChild(image);
             containerDiv.appendChild(div);
 

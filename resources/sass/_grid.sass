@@ -9,19 +9,21 @@
             grid-template-areas: "details details weather" "overview overview overview" "gallery-header gallery-header gallery-header" "gallery gallery gallery" "location location location" "facilities facilities facilities" "contact contact contact"
 
         .details
-            grid-area: details
+            //grid-area: details
+            grid-column: 1/4
+            grid-row: 1/2
         .overview
             grid-area: overview
-            padding: 0 150px
+            padding: 0 50px
         .gallery-header
             grid-area: gallery-header
-            padding-left: 150px
+            padding-left: 50px
         .gallery
             grid-area: gallery
         .facilities
             grid-area: facilities
             .table-container
-                padding: 0 150px
+                padding: .5em 50px 1em 50px
         .location
             grid-area: location
             display: grid
@@ -41,13 +43,18 @@
         .contact
             grid-area: contact
 
-    @media screen and (min-width: 1200px)
+    @media screen and (min-width: 1300px)
+        .details
+            grid-column: 1/3
+            grid-row: 1/2
+
         .weather
             display: flex
             flex-direction: column
             align-items: center
             justify-content: center
-            grid-area: weather
+            grid-column: 3/4
+            grid-row: 1/2
             border-left: 1px dashed $light-grey
 
             &__header
@@ -67,3 +74,13 @@
                 font-size: 1.2em
                 color: $grey
                 font-weight: 600
+
+        .overview
+            padding: 0 150px
+
+        .gallery-header
+            padding-left: 150px
+
+        .facilities
+            .table-container
+                padding: 0 150px
