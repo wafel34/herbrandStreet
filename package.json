@@ -18,8 +18,9 @@
   "author": "Pawel Marcinkowski",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.15.4",
-    "nodemailer": "^4.1.0",
+    "nodemailer": "^4.2.0",
     "nodemon": "^1.12.1"
   },
   "devDependencies": {
