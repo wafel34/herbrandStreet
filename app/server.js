@@ -27,20 +27,15 @@ app.get('/', function(req,res){
 //nodemailer
 
 app.post('/', function(req,res){
-    console.log(req.body);
-});
-
-app.get('/send',function(req,res){
-
-    var mailOptions = {
-            from: 'wafel34@op.pl', // sender address
-            to: 'wafel34@op.pl', // list of receivers
-            subject: 'Hello ✔', // Subject line
-            text: 'Hello world?', // plain text body
-            html: '<b>Hello world?</b>' // html body
+    var clientOptions = {
+            to: req.body.email, // list of receivers
+            subject: 'Contact Confirmation ✔', // Subject line
+            html: // html body
+            '<b>Hello '+req.body.name+'!</b>'+
+            '<p>Thank you for contacting us, we will look into your query shortly and will contact you back!</p>'
         };
 
-    transporter.sendMail(mailOptions, function(err, info){
+    transporter.sendMail(clientOptions, function(err, info){
         if (err) {
            return console.log(err);
        }
@@ -49,8 +44,24 @@ app.get('/send',function(req,res){
        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     });
 
-    e.preventDefault();
+    var adminOptions = {
+            to: process.env.EMAIL, // list of receivers
+            subject: 'New email query.', // Subject line
+            html:
+            '<p>From: '+req.body.name+'</p>'+
+            '<p>Email: '+req.body.email+'</p>'+
+            '<p>'+req.body.message+'</p>'
+        };
 
+    transporter.sendMail(adminOptions, function(err, info){
+        if (err) {
+           return console.log(err);
+       }
+       console.log('Message sent: %s', info.messageId);
+       // Preview only available when sending through an Ethereal account
+       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    });
 });
+
 
 app.listen(5000);

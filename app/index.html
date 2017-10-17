@@ -328,9 +328,13 @@
 	#########   -->
 	<section class="contact" id="contact" role="region" aria-labelledby="contact-header">
 		<h2 class="contact-header" id="contact-header">Contact us:</h2>
+		<div id="form-submitted" class="form-submitted form-submitted--hidden">
+			<h3 class="form-submitted__header">Your email has been sent!</h3>
+			<button id="close-confirmation-button" class="form-submitted__button" aria-label="Your email has been sent, click button to close this window."><span class="fa fa-times"></span></button>
+		</div>
 
 		<span class="info">Email us. We speak in English, French, Spanish and Polish.</span>
-		<form action="#" name="contactForm" class="form" id="contact-form">
+		<form action="" name="contactForm" class="form" id="contact-form">
 				<label class="form__label" for="personName">Your name:</label>
 				<input required class="form__input" type="text" id="personName" placeholder="John">
 
@@ -340,8 +344,9 @@
 				<label class="form__label" for="personMessage">Your message:</label>
 				<textarea required class="form__input textarea" name="personMessage" id="personMessage" placeholder="Enter your message here..."></textarea>
 
-			<input class="form__submit" type="submit" value="Send">
+			<input class="form__submit" id="form__submit-button" type="submit" value="Send">
 		</form>
+
 	</section>
 </main>
 
