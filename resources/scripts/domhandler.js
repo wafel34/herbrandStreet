@@ -21,7 +21,8 @@ DOMHANDLER.init = function(){
     var inputType = document.getElementById('input-type'),
         inputSort = document.getElementById('input-sort'),
         gallery = document.querySelectorAll('.gallery__link'),
-        menuList = document.querySelector('.menu-list');
+        menuList = document.querySelector('.menu-list'),
+        contactFrorm = document.getElementById('contact-form');
         arr = Array.prototype.slice.call(gallery);
 
         //SET TYPES ON DOMHANDLER OBJECT AND ADD LISTENERS TO THOSE INPUTS
@@ -41,6 +42,8 @@ DOMHANDLER.init = function(){
         menuList.addEventListener('click', NAVIGATION.hideClick.bind(NAVIGATION), false);
 
         document.body.addEventListener('click', NAVIGATION.hideClickOut.bind(NAVIGATION), false);
+
+        contactFrorm.addEventListener('submit', CONTACT.validate.bind(CONTACT), false);
 };
 
 

@@ -1,7 +1,8 @@
 var express = require('express'),
     path = require('path'),
     nodemailer = require('nodemailer'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    credentials = require('./creds'),
     app = express();
 
 var transporter =  nodemailer.createTransport({
@@ -9,13 +10,14 @@ var transporter =  nodemailer.createTransport({
     host: 'smtp.gmail.com',
     secure: false, // true for 465, false for other ports
     auth: {
-        user: '', // generated ethereal user
-        pass: ''  // generated ethereal password
+        user: process.env.EMAIL,
+        pass: process.env.PASS
     }
 });
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname,'index.html'));
@@ -25,7 +27,7 @@ app.get('/', function(req,res){
 //nodemailer
 
 app.post('/', function(req,res){
-    console.log(req.body.email);
+    console.log(req.body);
 });
 
 app.get('/send',function(req,res){
