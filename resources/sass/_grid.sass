@@ -1,11 +1,11 @@
 @supports (grid-area: auto)
     @media screen and (min-width: 1000px)
         .site
-            max-width: 1900px
+            max-width: 2700px
             margin: 0 auto
             display: grid
             grid-auto-flow: dense
-            grid-template-columns: minmax(auto, 10em) minmax(1000px,1500px) minmax(auto,15em)
+            grid-template-columns: auto minmax(1000px,1500px) minmax(10em, 20em)
             grid-template-areas: "details details weather" "overview overview overview" "gallery-header gallery-header gallery-header" "gallery gallery gallery" "location location location" "facilities facilities facilities" "contact contact contact"
 
         .details

@@ -15,7 +15,6 @@ CONTACT.validate = function(e) {
         message: this.message.value
     };
 
-    this.showConfirmation();
     this.send(config);
 };
 
@@ -57,9 +56,11 @@ CONTACT.send = function(config) {
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200)
            {
-               alert(xhr.responseText);
+               this.showConfirmation();
+           } else if (xhr.readyState === 4 && xhr.status !== 200){
+               alert('Ooops, there was and error: ' + xhr.responseText +'\nPlease try again, or email us manually at herbrandapartment@gmail.com\nThank you.');
            }
-    };
+    }.bind(this);
 
     xhr.open('POST', '/');
     xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");

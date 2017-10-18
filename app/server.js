@@ -6,7 +6,6 @@ var express = require('express'),
     app = express();
 
 var transporter =  nodemailer.createTransport({
-    service: 'gmail',
     host: 'smtp.gmail.com',
     secure: false, // true for 465, false for other ports
     auth: {
@@ -37,8 +36,10 @@ app.post('/', function(req,res){
 
     transporter.sendMail(clientOptions, function(err, info){
         if (err) {
-           return console.log(err);
-       }
+            res.sendStatus(500);
+            return console.log(err);
+        }
+       res.sendStatus(200);
        console.log('Message sent: %s', info.messageId);
        // Preview only available when sending through an Ethereal account
        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
