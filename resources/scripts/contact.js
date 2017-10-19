@@ -27,20 +27,18 @@ CONTACT.showConfirmation = function () {
     this.infoDiv.classList.remove('form-submitted--hidden');
     this.infoDiv.classList.add('form-submitted--visible');
 
-    this.name.disabled = true;
-    this.email.disabled = true;
-    this.message.disabled = true;
-    this.submit.disabled = true;
+    this.button.addEventListener('blur', function(e){
+        if (e.keyCode !== 13) {
+            this.button.focus();
+        }
+    }.bind(this), false);
 
 
     this.button.addEventListener('click', function(){
         this.infoDiv.classList.remove('form-submitted--visible');
         this.infoDiv.classList.add('form-submitted--hidden');
 
-        this.name.disabled = false;
-        this.email.disabled = false;
-        this.message.disabled = false;
-        this.submit.disabled = false;
+
     }.bind(this), false);
 
     setTimeout(function(){
