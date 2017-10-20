@@ -22,9 +22,9 @@ DOMHANDLER.init = function(){
         inputSort = document.getElementById('input-sort'),
         gallery = document.querySelectorAll('.gallery__link'),
         menuList = document.querySelector('.menu-list'),
+        lastListItem = menuList.children[menuList.children.length-1],
         contactFrorm = document.getElementById('contact-form');
         arr = Array.prototype.slice.call(gallery);
-
         //SET TYPES ON DOMHANDLER OBJECT AND ADD LISTENERS TO THOSE INPUTS
         this.setInputType(inputType.value);
         this.setInputSort(inputSort.value);
@@ -37,7 +37,8 @@ DOMHANDLER.init = function(){
         });
 
         //CHECK WHEN TABBING OUT FROM NAVIGATION
-        menuList.addEventListener('focusout', NAVIGATION.hideFocus.bind(NAVIGATION), false);
+
+        lastListItem.addEventListener('keydown', NAVIGATION.hideFocus.bind(NAVIGATION), false);
 
         menuList.addEventListener('click', NAVIGATION.hideClick.bind(NAVIGATION), false);
 

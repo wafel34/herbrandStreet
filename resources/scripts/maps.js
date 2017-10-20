@@ -134,7 +134,6 @@ MAPS.displayList = function(duration, place, marker){
 
     btn.innerHTML = 'SEE MORE DETAILS';
 
-
     //if place has photos add an image with photo and append it to span variable. if no image found, use icon
     if (place.photos !== undefined) {
             span += '<img class="map-list__image" src="'+ place.photos[0].getUrl({maxWidth: 75, maxHeight: 75})+'" alt="">';

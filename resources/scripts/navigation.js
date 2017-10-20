@@ -2,10 +2,9 @@ NAVIGATION = {
     checkbox: document.getElementById('menu-checkbox')
 };
 
-//if user left navigation and event source was Contact link, hide navigation
+//if user left navigation and pressed tab (without shift) close nav
 NAVIGATION.hideFocus = function(e) {
-    var source = e.target || e.srcElement;
-        if (source.hash === '#contact-header') {
+        if (e.keyCode === 9 && !e.shiftKey) {
             this.checkbox.checked = false;
         }
 };

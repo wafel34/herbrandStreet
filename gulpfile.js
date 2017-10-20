@@ -11,13 +11,16 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     concat = require('gulp-concat'),
     browserify = require('gulp-browserify'),
+    gulpIf = require('gulp-if'),
+    uglify = require('gulp-uglify'),
+    cleanCss = require('gulp-clean-css'),
+    htmlmin = require('gulp-htmlmin'),
     reload = browserSync.reload;
 
 var sassSources = './resources/sass/style.sass',
     jsSources = './resources/scripts/**/*.js',
-    outputDir;
-
-    outputDir = './app/public';
+    outputDir = './app/public',
+    env = 'production';
 
 
 var onError = function (err) {
@@ -69,10 +72,10 @@ gulp.task('js', function () {
             .pipe(sourcemaps.init())
             .pipe(concat('main.js'))
             .pipe(browserify())
-            //.pipe(gulpIf(env === 'production', uglify()))
+            .pipe(gulpIf(env === 'production', uglify()))
             .pipe(sourcemaps.write())
             .pipe(gulp.dest(outputDir + '/js'))
-            .pipe(browserSync.stream())
+            .pipe(browserSync.stream());
 });
 
 //SASS TO CSS
@@ -85,9 +88,9 @@ gulp.task('sass', function () {
             .pipe(sass())
             .pipe(autoprefixer())
             .pipe(sourcemaps.write())
-            //.pipe(gulpIf(env === 'production', minifyCss()))
+            .pipe(gulpIf(env === 'production', cleanCss({compatibility: 'ie8'})))
             .pipe(gulp.dest(outputDir + '/css'))
-            .pipe(browserSync.stream())
+            .pipe(browserSync.stream());
 });
 
 
@@ -101,9 +104,9 @@ gulp.task('pre-sass', function () {
             .pipe(sass())
             .pipe(autoprefixer())
             .pipe(sourcemaps.write())
-            //.pipe(gulpIf(env === 'production', minifyCss()))
+            .pipe(gulpIf(env === 'production', cleanCss({compatibility: 'ie8'})))
             .pipe(gulp.dest(outputDir + '/css'))
-            .pipe(browserSync.stream())
+            .pipe(browserSync.stream());
 });
 
 
