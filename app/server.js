@@ -2,6 +2,7 @@ var express = require('express'),
     path = require('path'),
     nodemailer = require('nodemailer'),
     bodyParser = require('body-parser'),
+    compression = require('compression'),
     app = express();
 
 var transporter =  nodemailer.createTransport({
@@ -18,6 +19,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
 
 
 app.get('/', function(req,res){

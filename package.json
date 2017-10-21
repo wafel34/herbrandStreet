@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "compression": "^1.7.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-browserify": "^0.5.1",
@@ -38,8 +39,8 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "smooth-scroll": "^12.1.5"
-},
-"engines": {
+  },
+  "engines": {
     "node": "6.10.2"
   }
 }
