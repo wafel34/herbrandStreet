@@ -69,11 +69,11 @@ gulp.task('js', function () {
             .pipe(plumber({
                 errorHandler: onError
             }))
-            .pipe(gulpIf(env === 'development',sourcemaps.init()))
+            .pipe(sourcemaps.init())
             .pipe(concat('main.js'))
             .pipe(browserify())
             .pipe(gulpIf(env === 'production', uglify()))
-            .pipe(gulpIf(env === 'development',sourcemaps.write()))
+            .pipe(sourcemaps.write())
             .pipe(gulp.dest(outputDir + '/js'))
             .pipe(browserSync.stream());
 });
