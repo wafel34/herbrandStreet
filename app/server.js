@@ -2,7 +2,6 @@ var express = require('express'),
     path = require('path'),
     nodemailer = require('nodemailer'),
     bodyParser = require('body-parser'),
-    credentials = require('./creds'),
     app = express();
 
 var transporter =  nodemailer.createTransport({
