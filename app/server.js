@@ -14,6 +14,8 @@ var transporter =  nodemailer.createTransport({
     }
 });
 
+
+app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,5 +67,5 @@ app.post('/', function(req,res){
     });
 });
 
-
-app.listen(5000);
+app.listen(app.get('port'));
+console.log('Express listening on port 5000');
