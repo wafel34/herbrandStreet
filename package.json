@@ -40,7 +40,7 @@
     "gulp-uglify": "^3.0.0",
     "smooth-scroll": "^12.1.5"
 },
-    "engines": {
-        "node": "6.10.2"
-      },
+"engines": {
+    "node": "6.10.2"
+  }
 }
