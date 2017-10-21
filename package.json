@@ -2,9 +2,9 @@
   "name": "herbrand_street",
   "version": "1.0.0",
   "description": "Landing page of apartment in London available for rent for tourists.",
-  "main": "index.js",
+  "main": "app/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app/server.js",
     "gulp": "gulp"
   },
   "repository": {
@@ -39,5 +39,8 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "smooth-scroll": "^12.1.5"
-  }
+},
+    "engines": {
+        "node": "6.10.2"
+      },
 }
