@@ -111,8 +111,12 @@ gulp.task('pre-sass', function () {
 
 gulp.task('html', function() {
     return gulp.src('./resources/html/index.html')
-        .pipe(htmlmin({collapseWhitespace: true,
-        removeComments: true}))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            removeComments: true,
+            collapseInlineTagWhitespace: true,
+            conservativeCollapse: true,
+            removeAttributeQuotes: true}))
         .pipe(gulp.dest('./app'));
 });
 
