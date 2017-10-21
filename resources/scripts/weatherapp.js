@@ -12,7 +12,7 @@ WEATHERAPI.init = function() {
             return false;
         }
         if (xhr.status !== 200 ){
-            console.err('Status error: ' + xhr.status);
+            console.error('Status error: ' + xhr.status);
         }
 
         var results = {},
