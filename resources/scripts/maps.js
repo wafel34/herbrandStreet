@@ -41,6 +41,9 @@ MAPS.initialize = function(config){
     this.service = new google.maps.places.PlacesService(this.map);
     this.distance = new google.maps.DistanceMatrixService();
 
+
+    this.infoWindow.setContent('<span>Herbrand Street<br>Bloomsbury<br>London<br>WC1N</span>');
+    this.infoWindow.open(this.map, marker);
     //INITIALIZE nearbySearch TO FIND PLACES IN LOCAL AREA AND CALL callback function
     this.service.nearbySearch(request, this.callback);
 
