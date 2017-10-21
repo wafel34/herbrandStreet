@@ -12,7 +12,7 @@ WEATHERAPI.init = function() {
             return false;
         }
         if (xhr.status !== 200 ){
-            console.log('Status error: ' + xhr.status);
+            console.err('Status error: ' + xhr.status);
         }
 
         var results = {},
@@ -36,7 +36,7 @@ WEATHERAPI.init = function() {
                 '</span>';
 
 
-            image.src = 'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png';
+            image.src = 'https://openweathermap.org/img/w/' + results.weather[0].icon + '.png';
             containerDiv.appendChild(image);
             containerDiv.appendChild(div);
 
