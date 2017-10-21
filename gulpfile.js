@@ -69,11 +69,11 @@ gulp.task('js', function () {
             .pipe(plumber({
                 errorHandler: onError
             }))
-            .pipe(sourcemaps.init())
+            .pipe(gulpIf(env === 'development',sourcemaps.init()))
             .pipe(concat('main.js'))
             .pipe(browserify())
             .pipe(gulpIf(env === 'production', uglify()))
-            .pipe(sourcemaps.write())
+            .pipe(gulpIf(env === 'development',sourcemaps.write()))
             .pipe(gulp.dest(outputDir + '/js'))
             .pipe(browserSync.stream());
 });
@@ -84,10 +84,10 @@ gulp.task('sass', function () {
             .pipe(plumber({
               errorHandler: onError
             }))
-            .pipe(sourcemaps.init({loadMaps: true}))
+            .pipe(gulpIf(env === 'development',sourcemaps.init({loadMaps: true})))
             .pipe(sass())
             .pipe(autoprefixer())
-            .pipe(sourcemaps.write())
+            .pipe(gulpIf(env === 'development',sourcemaps.write()))
             .pipe(gulpIf(env === 'production', cleanCss({compatibility: 'ie8'})))
             .pipe(gulp.dest(outputDir + '/css'))
             .pipe(browserSync.stream());
@@ -100,21 +100,30 @@ gulp.task('pre-sass', function () {
             .pipe(plumber({
               errorHandler: onError
             }))
-            .pipe(sourcemaps.init({loadMaps: true}))
+            .pipe(gulpIf(env === 'development',sourcemaps.init({loadMaps: true})))
             .pipe(sass())
             .pipe(autoprefixer())
-            .pipe(sourcemaps.write())
+            .pipe(gulpIf(env === 'development',sourcemaps.write()))
             .pipe(gulpIf(env === 'production', cleanCss({compatibility: 'ie8'})))
             .pipe(gulp.dest(outputDir + '/css'))
             .pipe(browserSync.stream());
 });
 
+gulp.task('html', function() {
+    return gulp.src('./resources/html/index.html')
+        .pipe(htmlmin({collapseWhitespace: true,
+        removeComments: true}))
+        .pipe(gulp.dest('./app'));
+});
 
 
 
-gulp.task('default', ['browser-sync', 'sass', 'pre-sass', 'js'], function () {
+
+gulp.task('default', ['html', 'browser-sync', 'sass', 'pre-sass', 'js'], function () {
     gulp.watch(jsSources, ['js']);
     gulp.watch('resources/sass/**/*.sass', ['sass']);
     gulp.watch('resources/sass/**/intro.sass', ['pre-sass']);
+    gulp.watch('resources/html/index.html', ['html']);
     gulp.watch('app/*.html', browserSync.reload);
+
 });
