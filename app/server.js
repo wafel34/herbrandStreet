@@ -23,6 +23,7 @@ app.use(compression());
 
 
 app.get('/', function(req,res){
+    res.setHeader('Cache-Control', 'public, max-age=31557600');
     res.sendFile(path.join(__dirname,'index.html'));
 });
 
