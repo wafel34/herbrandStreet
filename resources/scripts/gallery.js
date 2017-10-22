@@ -13,7 +13,6 @@ var GALLERY = {
 GALLERY.init = function(e){
     e.preventDefault();
 
-
     //below 2 variables are checking if clicked element was image (click) or link (key press)
     //and gets source base on that
     var eventSource = {},
@@ -93,21 +92,25 @@ GALLERY.init = function(e){
         document.body.appendChild(this.div);
 
         //focus the current div (this is to make possible scrolling with arrow keys)
+
         this.div.focus();
 
         //Get offset of active element (the one that was clicked on thumbnail) and scroll to it's position
+
         var oT = document.getElementById('image-active').offsetTop;
         this.div.scrollTop = oT;
 
-        //add text to the close button
-        this.closeBtn.innerHTML = '<span class="fa fa-times"></span>';
 
-        //if window is wider than 1000px alert instruction about gallery scrolling
-        //on wider screen image may take full height and it may be hard to figure out how to navigate through gallery
         if (this.windowWidth > 1000) {
             if (this.checkIfFiredAlready === false){
                 alert('TO VIEW GALLERY SCROLL UP OR DOWN\n\nOR USE ARROW KEYS');
             }
             this.checkIfFiredAlready = true;
         }
+        //add text to the close button
+        this.closeBtn.innerHTML = '<span class="fa fa-times"></span>';
+
+        //if window is wider than 1000px alert instruction about gallery scrolling
+        //on wider screen image may take full height and it may be hard to figure out how to navigate through gallery
+
 };
